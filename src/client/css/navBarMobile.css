@@ -1,0 +1,13 @@
+.hidden {
+  display: none;
+}
+ul {
+  list-style-type: none;
+}
+
+@media (max-width: 440px) {
+  .hidden {
+    display: block;
+  }
+}
+
