@@ -1,0 +1,28 @@
+{
+  "keys": [
+    { "name": "Cmaj" },
+    { "name": "Amin" },
+    { "name": "Dbmaj" },
+    { "name": "Bbmin" },
+    { "name": "Dmaj" },
+    { "name": "Bmin" },
+    { "name": "Ebmaj" },
+    { "name": "Cmin" },
+    { "name": "Emaj" },
+    { "name": "CSmin" },
+    { "name": "Fmaj" },
+    { "name": "Dmin" },
+    { "name": "Gbmaj" },
+    { "name": "Ebmin" },
+    { "name": "Gmaj" },
+    { "name": "Emin" },
+    { "name": "Abmaj" },
+    { "name": "Fmin" },
+    { "name": "Amaj" },
+    { "name": "FSmin" },
+    { "name": "Bbmaj" },
+    { "name": "Gmin" },
+    { "name": "Bmaj" },
+    { "name": "GSmin" }
+  ]
+}

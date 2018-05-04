@@ -25,8 +25,5 @@ const Gmin = [ "Gmin", "Aminb5", "Bbmaj", "Cmin", "Dmin", "Ebmaj", "Fmaj"];
 const Bmaj = ["Bmaj", "C#min", "D#min", "Emaj", "F#maj", "G#min", "A#minb5"];
 const GSmin = ["G#min", "A#minb5", "Bmaj", "C#min", "D#min", "Emaj", "F#maj"];
 
-  
-
-
 const keys = [Cmaj, Amin, Dbmaj, Bbmin, Dmaj, Bmin, Ebmaj, Cmin, Emaj, CSmin, Fmaj, Dmin, Gbmaj, Ebmin, Gmaj, Emin, Abmaj, Fmin, Amaj, FSmin, Bbmaj, Gmin, Bmaj, GSmin];
 module.exports = keys;

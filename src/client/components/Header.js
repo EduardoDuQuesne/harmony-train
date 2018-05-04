@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBarMobile from './NavBarMobile';
+import NavBar from './NavBar';
 import '../css/header.css';
 
 
@@ -8,9 +8,9 @@ class Header extends Component {
     return (
       <div>
         <div className="header">
-            <h1>Harmonic Progress</h1>
+            <h1>Harmony Train</h1>
         </div>
-        <NavBarMobile />
+        <NavBar logout={this.props.logout} isLoggedIn={this.props.isLoggedIn}/>
       </div>
     );
   }
