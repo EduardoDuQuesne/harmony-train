@@ -1,0 +1,678 @@
+{
+  "keys_chords": [
+    {
+      "chordId": 14,
+      "keyId": 1
+    },
+    {
+      "chordId": 19,
+      "keyId": 1
+    },
+    {
+      "chordId": 28,
+      "keyId": 1
+    },
+    {
+      "chordId": 29,
+      "keyId": 1
+    },
+    {
+      "chordId": 36,
+      "keyId": 1
+    },
+    {
+      "chordId": 4,
+      "keyId": 1
+    },
+    {
+      "chordId": 10,
+      "keyId": 1
+    },
+    {
+      "chordId": 4,
+      "keyId": 2
+    },
+    {
+      "chordId": 10,
+      "keyId": 2
+    },
+    {
+      "chordId": 14,
+      "keyId": 2
+    },
+    {
+      "chordId": 19,
+      "keyId": 2
+    },
+    {
+      "chordId": 28,
+      "keyId": 2
+    },
+    {
+      "chordId": 29,
+      "keyId": 2
+    },
+    {
+      "chordId": 36,
+      "keyId": 2
+    },
+    {
+      "chordId": 18,
+      "keyId": 3
+    },
+    {
+      "chordId": 24,
+      "keyId": 3
+    },
+    {
+      "chordId": 30,
+      "keyId": 3
+    },
+    {
+      "chordId": 35,
+      "keyId": 3
+    },
+    {
+      "chordId": 1,
+      "keyId": 3
+    },
+    {
+      "chordId": 7,
+      "keyId": 3
+    },
+    {
+      "chordId": 16,
+      "keyId": 3
+    },
+    {
+      "chordId": 7,
+      "keyId": 4
+    },
+    {
+      "chordId": 16,
+      "keyId": 4
+    },
+    {
+      "chordId": 18,
+      "keyId": 4
+    },
+    {
+      "chordId": 24,
+      "keyId": 4
+    },
+    {
+      "chordId": 30,
+      "keyId": 4
+    },
+    {
+      "chordId": 35,
+      "keyId": 4
+    },
+    {
+      "chordId": 1,
+      "keyId": 4
+    },
+    {
+      "chordId": 21,
+      "keyId": 5
+    },
+    {
+      "chordId": 28,
+      "keyId": 5
+    },
+    {
+      "chordId": 33,
+      "keyId": 5
+    },
+    {
+      "chordId": 36,
+      "keyId": 5
+    },
+    {
+      "chordId": 3,
+      "keyId": 5
+    },
+    {
+      "chordId": 8,
+      "keyId": 5
+    },
+    {
+      "chordId": 17,
+      "keyId": 5
+    },
+    {
+      "chordId": 8,
+      "keyId": 6
+    },
+    {
+      "chordId": 17,
+      "keyId": 6
+    },
+    {
+      "chordId": 21,
+      "keyId": 6
+    },
+    {
+      "chordId": 28,
+      "keyId": 6
+    },
+    {
+      "chordId": 33,
+      "keyId": 6
+    },
+    {
+      "chordId": 36,
+      "keyId": 6
+    },
+    {
+      "chordId": 3,
+      "keyId": 6
+    },
+    {
+      "chordId": 25,
+      "keyId": 7
+    },
+    {
+      "chordId": 30,
+      "keyId": 7
+    },
+    {
+      "chordId": 37,
+      "keyId": 7
+    },
+    {
+      "chordId": 1,
+      "keyId": 7
+    },
+    {
+      "chordId": 9,
+      "keyId": 7
+    },
+    {
+      "chordId": 15,
+      "keyId": 7
+    },
+    {
+      "chordId": 20,
+      "keyId": 7
+    },
+    {
+      "chordId": 15,
+      "keyId": 8
+    },
+    {
+      "chordId": 20,
+      "keyId": 8
+    },
+    {
+      "chordId": 25,
+      "keyId": 8
+    },
+    {
+      "chordId": 30,
+      "keyId": 8
+    },
+    {
+      "chordId": 37,
+      "keyId": 8
+    },
+    {
+      "chordId": 1,
+      "keyId": 8
+    },
+    {
+      "chordId": 9,
+      "keyId": 8
+    },
+    {
+      "chordId": 27,
+      "keyId": 9
+    },
+    {
+      "chordId": 33,
+      "keyId": 9
+    },
+    {
+      "chordId": 39,
+      "keyId": 9
+    },
+    {
+      "chordId": 3,
+      "keyId": 9
+    },
+    {
+      "chordId": 11,
+      "keyId": 9
+    },
+    {
+      "chordId": 13,
+      "keyId": 9
+    },
+    {
+      "chordId": 23,
+      "keyId": 9
+    },
+    {
+      "chordId": 13,
+      "keyId": 10
+    },
+    {
+      "chordId": 23,
+      "keyId": 10
+    },
+    {
+      "chordId": 27,
+      "keyId": 10
+    },
+    {
+      "chordId": 33,
+      "keyId": 10
+    },
+    {
+      "chordId": 39,
+      "keyId": 10
+    },
+    {
+      "chordId": 3,
+      "keyId": 10
+    },
+    {
+      "chordId": 11,
+      "keyId": 10
+    },
+    {
+      "chordId": 29,
+      "keyId": 11
+    },
+    {
+      "chordId": 37,
+      "keyId": 11
+    },
+    {
+      "chordId": 4,
+      "keyId": 11
+    },
+    {
+      "chordId": 9,
+      "keyId": 11
+    },
+    {
+      "chordId": 14,
+      "keyId": 11
+    },
+    {
+      "chordId": 19,
+      "keyId": 11
+    },
+    {
+      "chordId": 26,
+      "keyId": 11
+    },
+    {
+      "chordId": 19,
+      "keyId": 12
+    },
+    {
+      "chordId": 26,
+      "keyId": 12
+    },
+    {
+      "chordId": 29,
+      "keyId": 12
+    },
+    {
+      "chordId": 37,
+      "keyId": 12
+    },
+    {
+      "chordId": 4,
+      "keyId": 12
+    },
+    {
+      "chordId": 9,
+      "keyId": 12
+    },
+    {
+      "chordId": 14,
+      "keyId": 12
+    },  
+    {
+      "chordId": 25,
+      "keyId": 13
+    },
+    {
+      "chordId": 2,
+      "keyId": 13
+    },
+    {
+      "chordId": 7,
+      "keyId": 13
+    },
+    {
+      "chordId": 12,
+      "keyId": 13
+    },
+    {
+      "chordId": 18,
+      "keyId": 13
+    },
+    {
+      "chordId": 24,
+      "keyId": 13
+    },
+    {
+      "chordId": 31,
+      "keyId": 13
+    },  
+    {
+      "chordId": 24,
+      "keyId": 14
+    },
+    {
+      "chordId": 31,
+      "keyId": 14
+    }, 
+    {
+      "chordId": 25,
+      "keyId": 14
+    },
+    {
+      "chordId": 2,
+      "keyId": 14
+    },
+    {
+      "chordId": 7,
+      "keyId": 14
+    },
+    {
+      "chordId": 12,
+      "keyId": 14
+    },
+    {
+      "chordId": 26,
+      "keyId": 14
+    },
+    {
+      "chordId": 26,
+      "keyId": 15
+    },
+    {
+      "chordId": 4,
+      "keyId": 15
+    }, 
+    {
+      "chordId": 8,
+      "keyId": 15
+    },
+    {
+      "chordId": 14,
+      "keyId": 15
+    },
+    {
+      "chordId": 21,
+      "keyId": 15
+    },
+    {
+      "chordId": 28,
+      "keyId": 15
+    },
+    {
+      "chordId": 34,
+      "keyId": 15
+    },
+    {
+      "chordId": 28,
+      "keyId": 16
+    },
+    {
+      "chordId": 34,
+      "keyId": 16
+    },
+    {
+      "chordId": 26,
+      "keyId": 16
+    },
+    {
+      "chordId": 4,
+      "keyId": 16
+    }, 
+    {
+      "chordId": 8,
+      "keyId": 16
+    },
+    {
+      "chordId": 14,
+      "keyId": 16
+    },
+    {
+      "chordId": 21,
+      "keyId": 16
+    },
+    {
+      "chordId": 1,
+      "keyId": 17
+    },
+    {
+      "chordId": 7,
+      "keyId": 17
+    },
+    {
+      "chordId": 15,
+      "keyId": 17
+    },
+    {
+      "chordId":  18,
+      "keyId": 17
+    }, 
+    {
+      "chordId": 25,
+      "keyId": 17
+    },
+    {
+      "chordId": 30,
+      "keyId": 17
+    },
+    {
+      "chordId": 38,
+      "keyId": 17
+    },
+    {
+      "chordId": 30,
+      "keyId": 18
+    },
+    {
+      "chordId": 38,
+      "keyId": 18
+    },
+    {
+      "chordId": 1,
+      "keyId": 18
+    },
+    {
+      "chordId": 7,
+      "keyId": 18
+    },
+    {
+      "chordId": 15,
+      "keyId": 18
+    },
+    {
+      "chordId":  18,
+      "keyId": 18
+    }, 
+    {
+      "chordId": 25,
+      "keyId": 18
+    },
+    {
+      "chordId": 3,
+      "keyId": 19
+    },
+    {
+      "chordId": 8,
+      "keyId": 19
+    },
+    {
+      "chordId": 13,
+      "keyId": 19
+    },
+    {
+      "chordId": 21,
+      "keyId": 19
+    },
+    {
+      "chordId": 27,
+      "keyId": 19
+    },
+    {
+      "chordId": 33,
+      "keyId": 19
+    },
+    {
+      "chordId":  40,
+      "keyId": 19
+    }, 
+    {
+      "chordId": 33,
+      "keyId": 20
+    },
+    {
+      "chordId":  40,
+      "keyId": 20
+    }, 
+    {
+      "chordId": 3,
+      "keyId": 20
+    },
+    {
+      "chordId": 8,
+      "keyId": 20
+    },
+    {
+      "chordId": 13,
+      "keyId": 20
+    },
+    {
+      "chordId": 21,
+      "keyId": 20
+    },
+    {
+      "chordId": 27,
+      "keyId": 20
+    },
+    {
+      "chordId": 9,
+      "keyId": 21
+    },
+    {
+      "chordId":  15,
+      "keyId": 21
+    }, 
+    {
+      "chordId": 19,
+      "keyId": 21
+    },
+    {
+      "chordId": 25,
+      "keyId": 21
+    },
+    {
+      "chordId": 29,
+      "keyId": 21
+    },
+    {
+      "chordId": 37,
+      "keyId": 21
+    },
+    {
+      "chordId": 5,
+      "keyId": 21
+    },
+    
+    {
+      "chordId": 37,
+      "keyId": 22
+    },
+    {
+      "chordId": 5,
+      "keyId": 22
+    },
+    {
+      "chordId": 9,
+      "keyId": 22
+    },
+    {
+      "chordId":  15,
+      "keyId": 22
+    }, 
+    {
+      "chordId": 19,
+      "keyId": 22
+    },
+    {
+      "chordId": 25,
+      "keyId": 22
+    },
+    {
+      "chordId": 29,
+      "keyId": 22
+    },
+
+    {
+      "chordId": 11,
+      "keyId": 23
+    },
+    {
+      "chordId": 13,
+      "keyId": 23
+    },
+    {
+      "chordId": 22,
+      "keyId": 23
+    },
+    {
+      "chordId":  27,
+      "keyId": 23
+    }, 
+    {
+      "chordId": 32,
+      "keyId": 23
+    },
+    {
+      "chordId": 39,
+      "keyId": 23
+    },
+    {
+      "chordId": 6,
+      "keyId": 23
+    },
+    {
+      "chordId": 39,
+      "keyId": 24
+    },
+    {
+      "chordId": 6,
+      "keyId": 24
+    },
+    {
+      "chordId": 11,
+      "keyId": 24
+    },
+    {
+      "chordId": 13,
+      "keyId": 24
+    },
+    {
+      "chordId": 22,
+      "keyId": 24
+    },
+    {
+      "chordId":  27,
+      "keyId": 24
+    }, 
+    {
+      "chordId": 32,
+      "keyId": 24
+    }  
+  ]
+}
