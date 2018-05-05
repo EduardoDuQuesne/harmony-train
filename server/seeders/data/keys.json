@@ -9,7 +9,7 @@
     { "name": "Ebmaj" },
     { "name": "Cmin" },
     { "name": "Emaj" },
-    { "name": "CSmin" },
+    { "name": "C#min" },
     { "name": "Fmaj" },
     { "name": "Dmin" },
     { "name": "Gbmaj" },
@@ -19,10 +19,10 @@
     { "name": "Abmaj" },
     { "name": "Fmin" },
     { "name": "Amaj" },
-    { "name": "FSmin" },
+    { "name": "F#min" },
     { "name": "Bbmaj" },
     { "name": "Gmin" },
     { "name": "Bmaj" },
-    { "name": "GSmin" }
+    { "name": "G#min" }
   ]
 }
