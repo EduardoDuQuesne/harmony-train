@@ -148,10 +148,18 @@ class App extends Component {
     this.setState({ submitted: true });
     let answerKey = [...this.state.chords];
     let userAnswers = [...this.state.answers];
-    let isCorrect = answerKey.map((answer, i) => {
-      return answer === userAnswers[i] ? true : false;
+    //ANSWERS FOR DATABASE
+    let answers = [];
+    let isCorrect = answerKey.map((answer, i) => { 
+      let correct =  answer === userAnswers[i] ? true : false;
+      answers.push({chord: answer, correct});
+      return correct;
     });
     this.setState({ isCorrect: isCorrect });
+    let answerObj = {keyName: this.state.key[0], answers};
+    if (this.state.currentUsername) {
+      axios.post(`${this.url}/server/answers`, answerObj);
+    } 
   };
 
   //NEXT QUESTION

@@ -20,7 +20,6 @@ app.use(
   })
 );
 
-
 require("./server/config/passport-strat.js");
 app.use(passport.initialize());
 app.use(passport.session());
