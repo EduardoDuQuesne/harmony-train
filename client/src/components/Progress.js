@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import ChordProgress from "./ChordProgress";
+import KeyProgress from "./KeyProgress";
+
+import {Tabs, Tab} from 'material-ui/Tabs';
 
 class Progress extends Component {
   componentDidMount = () => {
@@ -6,9 +11,16 @@ class Progress extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Progress</h1>
-      </div>
+      <MuiThemeProvider>
+        <Tabs>
+          <Tab label="By Key">
+            <KeyProgress keyProgress={this.props.keyProgress}/>
+          </Tab>
+          <Tab label="By Chord">        
+            <ChordProgress />
+          </Tab>
+        </Tabs>
+      </MuiThemeProvider>
     );
   }
 }

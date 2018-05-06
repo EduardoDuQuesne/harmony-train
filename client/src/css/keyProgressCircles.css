@@ -1,0 +1,11 @@
+.key-progress-flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.score-green {
+  color: green;
+}
+.score-red {
+  color: red;
+}
