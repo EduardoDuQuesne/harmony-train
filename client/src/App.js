@@ -4,14 +4,13 @@ import Header from './components/Header';
 import Training from './components/Training';
 import Login from './components/Login';
 import Register from './components/Register';
+import Progress from './components/Progress';
 import NotFound from './components/NotFound';
 import { randomChord, randomKey } from './helpers.js';
 import { createBrowserHistory as createHistory } from "history";
 import axios from 'axios';
 import keys from './chords';
 import './App.css';
-
-
 
 class App extends Component {
   //HISTORY
@@ -162,6 +161,15 @@ class App extends Component {
     } 
   };
 
+  getProgressData = () => {
+    if (this.state.currentUsername) {
+      axios.get(`${this.url}/server/progress`)
+      .then(({data}) => {
+        console.log('Progress: ', data );
+      });
+    }
+  }
+
   //NEXT QUESTION
   nextQuestion = () => {
     this.newProgression();
@@ -245,6 +253,13 @@ class App extends Component {
                 );
               }}
             />
+            <Route exact path="/progress" render={() => {
+              return (
+                <Progress 
+                  getProgressData={this.getProgressData}
+                />
+              );
+            }} />
 
             <Route exact component={NotFound} />
           </Switch>
