@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
+//COMPONENTS
 import Header from './components/Header';
 import Training from './components/Training';
 import Login from './components/Login';
 import Register from './components/Register';
+import Progress from './components/Progress';
 import NotFound from './components/NotFound';
+
 import { randomChord, randomKey } from './helpers.js';
 import { createBrowserHistory as createHistory } from "history";
 import axios from 'axios';
 import keys from './chords';
 import './App.css';
-
-
 
 class App extends Component {
   //HISTORY
@@ -29,7 +30,8 @@ class App extends Component {
     message: '',
     currentUsername: null,
     currentUserId: null,
-    open: false
+    open: false,
+    keyProgress: []
   };
 
   //ON COMPONENT MOUNT, LOAD CHORD PROGRESSION
@@ -162,6 +164,18 @@ class App extends Component {
     } 
   };
 
+  getProgressData = () => {
+    if (this.state.currentUsername) {
+      axios.get(`${this.url}/server/progress`)
+      .then(({data}) => {
+        console.log('Progress: ', data );
+        this.setState({
+          keyProgress: data
+        })
+      });
+    }
+  }
+
   //NEXT QUESTION
   nextQuestion = () => {
     this.newProgression();
@@ -245,6 +259,14 @@ class App extends Component {
                 );
               }}
             />
+            <Route exact path="/progress" render={() => {
+              return (
+                <Progress 
+                  getProgressData={this.getProgressData}
+                  keyProgress={this.state.keyProgress}
+                />
+              );
+            }} />
 
             <Route exact component={NotFound} />
           </Switch>
