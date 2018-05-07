@@ -15,7 +15,6 @@ module.exports.getProgress = async (req, res, next) => {
         keyName: `${keys[i].name}`,
         progress: []
       }
-      console.log('KEYS:', keys[i].name, keys[i].id );
       //EACH LOOP GETS CHORDS IN KEY
       let chords = await KeyChord.findAll({
             raw: true,
@@ -27,7 +26,6 @@ module.exports.getProgress = async (req, res, next) => {
           });
           //LOOP AND GET STATS ON EACH CHORD IN CURRENT KEY
           for (let j = 0; j < 7; j++) {
-            console.log('CHORD LOOP: ', chords[j] );
             let correct = await Answer.findAndCount({
               raw: true,
               where: {keyId: keys[i].id, chordId: chords[j].chordId, correct: true}

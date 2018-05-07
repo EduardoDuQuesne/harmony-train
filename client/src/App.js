@@ -7,11 +7,14 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Progress from './components/Progress';
 import NotFound from './components/NotFound';
-
+//HELPER FUNCTIONS AND DATA
 import { randomChord, randomKey } from './helpers.js';
+import { setChordProgression } from "./tone";
+import keys from './chords';
+//DEPENDENCIES
 import { createBrowserHistory as createHistory } from "history";
 import axios from 'axios';
-import keys from './chords';
+//STYLE
 import './App.css';
 
 class App extends Component {
@@ -86,7 +89,7 @@ class App extends Component {
       console.log('Client Logout: ', data );
     })
     .catch(err => {
-      console.log('Logout Error: ', err);
+      console.log('Client Logout Error: ', err);
     });
     this.setState({ isLoggedIn: false });
   };
@@ -99,7 +102,7 @@ class App extends Component {
     }
     axios.post(`${this.url}/server/register`, newUser)
     .then(user => {
-      console.log('USER: ', user );
+      console.log('CLIENT USER: ', user );
       this.history.push('/');
       this.setState({
         message: "",
@@ -130,9 +133,8 @@ class App extends Component {
 
   //LOADS NEW CHORD PROGRESSION
   newProgression = () => {
-    let k = randomKey();
-    //CHANGED FOR DEV PURPOSES TO 1 KEY, CHANGE BACK TO KEY
-    let chords = keys[23];
+    let k = randomKey();  
+    let chords = keys[k];
     let chordProgression = [];
     for (let i = 0; i < 8; i++) {
       let c = randomChord();
@@ -143,6 +145,9 @@ class App extends Component {
       chords: chordProgression,
     });
     console.log('ANSWER KEY: ', chordProgression);
+    //PASS CHORD PROGRESSION FOR AUDIO, REPLACE # with S for sharp chords
+    let toneProgression = chordProgression.map(chord => chord.replace("#", "S"));
+    setChordProgression(toneProgression);
   };
 
   //SUBMIT USER ANSWERS
@@ -160,7 +165,6 @@ class App extends Component {
     });
     this.setState({ isCorrect: isCorrect });
     let answerObj = {keyName: this.state.key[0], answers};
-    console.log('ANSWER OBJ: ', answerObj );
     if (this.state.currentUsername) {
       axios.post(`${this.url}/server/answers`, answerObj);
     } 
@@ -170,8 +174,7 @@ class App extends Component {
     if (this.state.currentUsername) {
       axios.get(`${this.url}/server/progress`)
       .then(({data}) => {
-        console.log('LOGGED IN AND PROGRESS CLICKED');
-        console.log('Progress: ', data );
+        console.log('LOGGED IN AND PROGRESS CLICKED: ', data );
         this.setState({
           keyProgress: data
         })
