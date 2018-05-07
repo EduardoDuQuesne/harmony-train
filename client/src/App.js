@@ -9,7 +9,6 @@ import Progress from './components/Progress';
 import NotFound from './components/NotFound';
 //HELPER FUNCTIONS AND DATA
 import { randomChord, randomKey } from './helpers.js';
-import { setChordProgression } from "./tone";
 import keys from './chords';
 //DEPENDENCIES
 import { createBrowserHistory as createHistory } from "history";
@@ -34,7 +33,8 @@ class App extends Component {
     currentUsername: null,
     currentUserId: null,
     open: false,
-    keyProgress: []
+    keyProgress: [],
+    toneProgression: []
   };
 
   //ON COMPONENT MOUNT, LOAD CHORD PROGRESSION
@@ -136,10 +136,11 @@ class App extends Component {
     let k = randomKey();  
     let chords = keys[k];
     let chordProgression = [];
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 7; i++) {
       let c = randomChord();
       chordProgression.push(chords[c]);
     }
+    chordProgression.unshift(chords[0]);
     this.setState({
       key: chords,
       chords: chordProgression,
@@ -147,7 +148,7 @@ class App extends Component {
     console.log('ANSWER KEY: ', chordProgression);
     //PASS CHORD PROGRESSION FOR AUDIO, REPLACE # with S for sharp chords
     let toneProgression = chordProgression.map(chord => chord.replace("#", "S"));
-    setChordProgression(toneProgression);
+    this.setState({toneProgression});
   };
 
   //SUBMIT USER ANSWERS
@@ -219,6 +220,7 @@ class App extends Component {
           getProgressData={this.getProgressData}
           />
           <Switch>
+
             <Route
               exact
               path="/"
@@ -238,6 +240,7 @@ class App extends Component {
                     open={this.state.open}
                     username={this.state.currentUsername}
                     closeSnackBar={this.closeSnackBar}
+                    toneProgression={this.state.toneProgression}
                   />
                 );
               }}
@@ -266,6 +269,7 @@ class App extends Component {
                 );
               }}
             />
+
             <Route exact path="/progress" render={() => {
               return (
                 <Progress 
@@ -273,7 +277,8 @@ class App extends Component {
                   keyProgress={this.state.keyProgress}
                 />
               );
-            }} />
+            }} 
+            />
 
             <Route exact component={NotFound} />
           </Switch>

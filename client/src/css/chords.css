@@ -4,4 +4,8 @@
   justify-content: space-around;
 }
 
+.hide-btn {
+  display: none !important;
+}
+
   
