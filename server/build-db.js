@@ -2,7 +2,6 @@ let models = require('./models');
 let { keys } = require('./seeders/data/keys.json');
 let { chords } = require('./seeders/data/chords.json');
 let { keys_chords } = require('./seeders/data/key_chords.json');
-console.log('KEYS CHORDS: ', keys);
 
 models.sequelize
   .sync({ force: true })

@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import ChordCircles from './ChordCircles';
+import { playProgression, stopProgression } from '../tone';
 import '../css/chords.css';
 
 class Chords extends Component {
+  //MOVE TO MAIN COMPONENT
+  play = () => {
+    playProgression();
+  }
+  stop = () => {
+    stopProgression();
+  }
+
   render() {
     let chords = [...this.props.chords];
     let isSubmitted = this.props.submitted;
@@ -30,8 +39,8 @@ class Chords extends Component {
         <button onClick={this.props.nextQuestion} hidden={!isSubmitted}>
           Next Question
         </button>
-        <button>&#9658;</button>
-        <button>&#9632;</button>
+        <button name="play" onClick={this.play} >&#9658;</button>
+        <button name="stop" onClick={this.stop}>&#9632;</button>
       </div>
     );
   }

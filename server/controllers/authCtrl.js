@@ -2,7 +2,6 @@
 const passport = require("passport");
 
 module.exports.register = (req, res, next) => {
-  console.log('REQ: ', req.body );
   // if (req.body.password === req.body.confirmation) { // move to client validation
   console.log("Trying to register new user");
 
