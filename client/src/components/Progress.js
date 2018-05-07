@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import LinearProgress from 'material-ui/LinearProgress';
 import ChordProgress from "./ChordProgress";
 import KeyProgress from "./KeyProgress";
 
@@ -12,15 +13,15 @@ class Progress extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <Tabs>
-          <Tab label="By Key">
-            <KeyProgress keyProgress={this.props.keyProgress}/>
-          </Tab>
-          <Tab label="By Chord">        
-            <ChordProgress />
-          </Tab>
-        </Tabs>
-      </MuiThemeProvider>
+          <Tabs>
+            <Tab label="By Key">
+              <KeyProgress keyProgress={this.props.keyProgress}/>
+            </Tab>
+            <Tab label="By Chord">        
+              <ChordProgress />
+            </Tab>
+          </Tabs>
+        </MuiThemeProvider>
     );
   }
 }

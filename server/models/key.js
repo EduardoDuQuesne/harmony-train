@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   var Key = sequelize.define(
     'Key',
     {
-      name: DataTypes.STRING,
+      name: DataTypes.STRING
     },
     { timestamps: false, tableName: 'keys' },
   );

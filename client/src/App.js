@@ -131,7 +131,8 @@ class App extends Component {
   //LOADS NEW CHORD PROGRESSION
   newProgression = () => {
     let k = randomKey();
-    let chords = keys[k];
+    //CHANGED FOR DEV PURPOSES TO 1 KEY, CHANGE BACK TO KEY
+    let chords = keys[23];
     let chordProgression = [];
     for (let i = 0; i < 8; i++) {
       let c = randomChord();
@@ -159,6 +160,7 @@ class App extends Component {
     });
     this.setState({ isCorrect: isCorrect });
     let answerObj = {keyName: this.state.key[0], answers};
+    console.log('ANSWER OBJ: ', answerObj );
     if (this.state.currentUsername) {
       axios.post(`${this.url}/server/answers`, answerObj);
     } 
@@ -168,6 +170,7 @@ class App extends Component {
     if (this.state.currentUsername) {
       axios.get(`${this.url}/server/progress`)
       .then(({data}) => {
+        console.log('LOGGED IN AND PROGRESS CLICKED');
         console.log('Progress: ', data );
         this.setState({
           keyProgress: data
@@ -210,6 +213,7 @@ class App extends Component {
           logout={this.logout} 
           isLoggedIn={this.state.isLoggedIn} 
           updateState={this.updateState}
+          getProgressData={this.getProgressData}
           />
           <Switch>
             <Route
