@@ -1,6 +1,5 @@
 import Tone from "tone";
 
-
 //Piano Sample
 let piano = new Tone.Players({
   "Abmaj": "../public/audio/Abmaj.mp3",
@@ -48,28 +47,5 @@ let piano = new Tone.Players({
   "fadeOut": "32n",
 }).toMaster();
 
-let chordProgression = [];
-const setChordProgression = (progression) => {
-  chordProgression = progression;
-  console.log('TONE: ', chordProgression );
-}
-
-let pianoLoop = new Tone.Sequence((time, col) => { 
-  piano.get(chordProgression[col]).start(time, 0, "1n", 0);   
-  if(col === 7) stopProgression();  
-}, [0, 1, 2, 3, 4, 5, 6, 7], "1n");
-pianoLoop.iterations = 1;
-
-
-const playProgression = () => {
-  Tone.Transport.start();
-  pianoLoop.start();
-
-}
-const stopProgression = () => {
-  Tone.Transport.stop();
-  pianoLoop.stop();
-}
-
-export { setChordProgression, pianoLoop, playProgression, stopProgression }
+export { piano }
 

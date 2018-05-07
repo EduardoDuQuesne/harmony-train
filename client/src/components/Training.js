@@ -17,6 +17,7 @@ class Training extends Component {
           submitted={this.props.submitted}
           onDragDrop={this.props.onDragDrop}
           dragOver={this.props.dragOver}
+          toneProgression={this.props.toneProgression}
         />
         
         <Choices

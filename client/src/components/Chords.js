@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import ChordCircles from './ChordCircles';
-import { playProgression, stopProgression } from '../tone';
+import Audio from './Audio';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
 import '../css/chords.css';
 
 class Chords extends Component {
-  //MOVE TO MAIN COMPONENT
-  play = () => {
-    playProgression();
-  }
-  stop = () => {
-    stopProgression();
-  }
-
+  
   render() {
     let chords = [...this.props.chords];
     let isSubmitted = this.props.submitted;
@@ -33,14 +28,21 @@ class Chords extends Component {
             );
           })}
         </div>
-        <button onClick={this.props.submitAnswer} hidden={isSubmitted}>
+        {/* <button onClick={this.props.submitAnswer} hidden={isSubmitted}>
           Submit Answer
-        </button>
-        <button onClick={this.props.nextQuestion} hidden={!isSubmitted}>
+        </button> */}
+        {/* <button onClick={this.props.nextQuestion} hidden={!isSubmitted}>
           Next Question
-        </button>
-        <button name="play" onClick={this.play} >&#9658;</button>
-        <button name="stop" onClick={this.stop}>&#9632;</button>
+        </button> */}
+        <MuiThemeProvider>
+          <div>
+            <RaisedButton onClick={this.props.submitAnswer} className={`${isSubmitted ? "hide-btn" : ""}`} label="Submit Answer"  />
+            <RaisedButton onClick={this.props.nextQuestion} className={`${!isSubmitted ? "hide-btn" : ""}`} label="Next Question"  />
+          </div>
+        </MuiThemeProvider>
+
+      
+        <Audio toneProgression={this.props.toneProgression} />
       </div>
     );
   }
