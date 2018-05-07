@@ -1,11 +1,11 @@
 /*jshint esversion: 6 */
 
 const Cmaj = ['Cmaj', 'Dmin', 'Emin', 'Fmaj', 'Gmaj', 'Amin', 'Bminb5'];
-const Amin = ['Aminb5', 'Bmin', 'Cmaj', 'Dmin', 'Emin', 'Fmaj', 'Gmaj'];
+const Amin = ['Amin', 'Bminb5', 'Cmaj', 'Dmin', 'Emin', 'Fmaj', 'Gmaj'];
 const Dbmaj = ['Dbmaj', 'Ebmin', 'Fmin', 'Gbmaj', 'Abmaj', 'Bbmin', 'Cminb5'];
 const Bbmin = ['Bbmin', 'Cminb5', 'Dbmaj', 'Ebmin', 'Fmin', 'Gbmaj', 'Abmaj'];
 const Dmaj = ['Dmaj', 'Emin', 'F#min', 'Gmaj', 'Amaj', 'Bmin', 'C#minb5'];
-const Bmin = ['Bmin', 'C#min', 'Dmaj', 'Emin', 'F#min', 'Gmaj', 'Amaj'];
+const Bmin = ['Bmin', 'C#minb5', 'Dmaj', 'Emin', 'F#min', 'Gmaj', 'Amaj'];
 const Ebmaj = ['Ebmaj', 'Fmin', 'Gmin', 'Abmaj', 'Bbmaj', 'Cmin', 'Dminb5'];
 const Cmin = ['Cmin', 'Dminb5', 'Ebmaj', 'Fmin', 'Gmin', 'Abmaj', 'Bbmaj'];
 const Emaj = ['Emaj', 'F#min', 'G#min', 'Amaj', 'Bmaj', 'C#min', 'D#minb5'];

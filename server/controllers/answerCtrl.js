@@ -7,6 +7,7 @@ module.exports.getKeyId = async (req, res, next) => {
   let {keyName} = req.body;
   let [...answers] = req.body.answers;
   let { id: keyId } = await Key.findOne({where: {name: keyName}, raw: true});
+  console.log('KEY STORE ANSWER: ', keyName, keyId );
   answers.forEach(({chord: chordName, correct}) => {
     Chord.findOne({where: {name: chordName}, raw: true})
     .then(({id: chordId}) => {

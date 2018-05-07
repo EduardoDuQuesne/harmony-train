@@ -13,6 +13,7 @@ class Header extends Component {
         logout={this.props.logout} 
         isLoggedIn={this.props.isLoggedIn} 
         updateState={this.props.updateState} 
+        getProgressData={this.props.getProgressData}
         />
       </div>
     );
