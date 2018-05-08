@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { styleScore } from "../helpers.js";
 import "../css/keyProgressCircles.css";
 
-class KeyProgressCircles extends Component {
+class MajorProgressCircles extends Component {
   
   render() {
     const [...chords] = this.props.chords
@@ -21,4 +21,4 @@ class KeyProgressCircles extends Component {
     );
   }
 }
-export default KeyProgressCircles;
+export default MajorProgressCircles;

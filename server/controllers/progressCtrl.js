@@ -1,11 +1,14 @@
 "use strict";
 
+
+//GET PROGRESS FOR EACH KEY
 module.exports.getProgress = async (req, res, next) => {
   let { Chord, Key, Answer, KeyChord } = req.app.get('models');
   let {id: userId } = req.app.get('user');
   if (userId) {
     let keys = await Key.findAll({
       raw: true, 
+      where: {type: req.params.type}
     });
     //GIANT PROGRESS ARRAY
     let progressArray = [];
