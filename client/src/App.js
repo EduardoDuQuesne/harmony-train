@@ -33,7 +33,8 @@ class App extends Component {
     currentUsername: null,
     currentUserId: null,
     open: false,
-    keyProgress: [],
+    majorProgress: [],
+    minorProgress: [],
     toneProgression: []
   };
 
@@ -103,6 +104,7 @@ class App extends Component {
     axios.post(`${this.url}/server/register`, newUser)
     .then(user => {
       console.log('CLIENT USER: ', user );
+      axios.post(`${this.url}/server/login`, {username: newUser.username, password: newUser.password});
       this.history.push('/');
       this.setState({
         message: "",
@@ -173,12 +175,18 @@ class App extends Component {
 
   getProgressData = () => {
     if (this.state.currentUsername) {
-      axios.get(`${this.url}/server/progress`)
+      axios.get(`${this.url}/server/progress/major`)
       .then(({data}) => {
         console.log('LOGGED IN AND PROGRESS CLICKED: ', data );
         this.setState({
-          keyProgress: data
+          majorProgress: data
         })
+        return axios.get(`${this.url}/server/progress/minor`);
+      })
+      .then(({data}) => {
+        this.setState({
+          minorProgress: data
+        });
       });
     }
   }
@@ -274,7 +282,8 @@ class App extends Component {
               return (
                 <Progress 
                   getProgressData={this.getProgressData}
-                  keyProgress={this.state.keyProgress}
+                  majorProgress={this.state.majorProgress}
+                  minorProgress={this.state.minorProgress}
                 />
               );
             }} 

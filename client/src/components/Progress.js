@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import LinearProgress from 'material-ui/LinearProgress';
-import ChordProgress from "./ChordProgress";
-import KeyProgress from "./KeyProgress";
+import MajorProgress from "./MajorProgress";
+import MinorProgress from "./MinorProgress";
 
 import {Tabs, Tab} from 'material-ui/Tabs';
 
@@ -14,11 +14,11 @@ class Progress extends Component {
     return (
       <MuiThemeProvider>
           <Tabs>
-            <Tab label="By Key">
-              <KeyProgress keyProgress={this.props.keyProgress}/>
+            <Tab label="Major Keys">
+              <MajorProgress majorProgress={this.props.majorProgress}/>
             </Tab>
-            <Tab label="By Chord">        
-              <ChordProgress />
+            <Tab label="Minor Keys">        
+              <MinorProgress minorProgress={this.props.minorProgress} />
             </Tab>
           </Tabs>
         </MuiThemeProvider>
