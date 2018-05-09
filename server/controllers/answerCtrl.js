@@ -10,6 +10,7 @@ module.exports.getKeyId = async (req, res, next) => {
     Chord.findOne({where: {name: chordName}, raw: true})
     .then(({id: chordId}) => {
       Answer.create({correct, userId,  keyId, chordId});
+      res.status(201).send({message: "Answer stored to database"});
     })
     .catch(err => {
       console.log('Server Answer Create: ', err);
