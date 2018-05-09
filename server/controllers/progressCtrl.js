@@ -2,9 +2,10 @@
 
 
 //GET PROGRESS FOR EACH KEY
-module.exports.getProgress = async (req, res, next) => {
+module.exports.getProgressByKey = async (req, res, next) => {
   let { Chord, Key, Answer, KeyChord } = req.app.get('models');
   let {id: userId } = req.app.get('user');
+  let keyTotal = 0;
   if (userId) {
     let keys = await Key.findAll({
       raw: true, 
@@ -14,6 +15,7 @@ module.exports.getProgress = async (req, res, next) => {
     let progressArray = [];
     //LOOP THROUGH KEYS
     for (let i = 0; i < keys.length; i++) {
+      keyTotal = 0;
       let chordObj = {
         keyName: `${keys[i].name}`,
         progress: []
@@ -39,6 +41,8 @@ module.exports.getProgress = async (req, res, next) => {
               where: {userId: userId, keyId: keys[i].id, chordId: chords[j].chordId, correct: false}
             });
             let total = correct.count + incorrect.count;
+            keyTotal = await keyTotal + total;
+            console.log("KEY TOTAL: ", total, keyTotal );
             let chordStats = {
               chordName: chords[j]['Chord.name'],
               percentage: ((correct.count / total) * 100).toFixed(0),
@@ -47,8 +51,10 @@ module.exports.getProgress = async (req, res, next) => {
               total
             };
             chordObj.progress.push(chordStats)
-          }      
+          }
+          console.log('Key Total: ', keyTotal );
           progressArray.push(chordObj);
+          
     }
     res.status(200).json(progressArray);
   }

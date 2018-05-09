@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getProgress } = require('../controllers/progressCtrl');
+const { getProgressByKey } = require('../controllers/progressCtrl');
 
-router.get("/server/progress/:type", getProgress);
+router.get("/server/progress/:type", getProgressByKey);
 
 module.exports = router;
