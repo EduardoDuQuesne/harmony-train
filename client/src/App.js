@@ -39,18 +39,18 @@ class App extends Component {
   };
 
   //ON COMPONENT MOUNT, LOAD CHORD PROGRESSION
+  //CHECK IF USER IS LOGGED INTO DATABASE
+  //TODO: ERROR HANDLING, CATCH
   componentDidMount() {
     this.newProgression();
-    axios('/server/status')
-    .then(status => {
-      if (status.data) {
-        this.setState({
-          isLoggedIn: true,
-          currentUsername: status.data.username,
-          currentUserId: status.data.id
+    this.checkStatus()
+    .then(({username, id}) => {
+      this.setState({
+        isLoggedIn: true,
+        currentUsername: username,
+        currentUserId: id
         })
-      }
-    })
+    });
   }
 
   //LOG IN
@@ -119,6 +119,21 @@ class App extends Component {
     })
   };
 
+  //CHECK USER STATUS
+  checkStatus = () => {
+    return new Promise((resolve, reject) => {
+      axios('/server/status')
+      .then(status => {
+        if (status.data) {
+          resolve(status.data);
+        }
+      })
+      .catch(err => {
+        reject(err);
+      });
+    });
+  }
+
   //UPDATING STATE ON ROUTE CHANGE
   updateState = () => {
     this.setState({
@@ -155,7 +170,7 @@ class App extends Component {
 
   //SUBMIT USER ANSWERS
   userAnswers = [];
-  submitAnswer = () => {
+  submitAnswer = async () => {
     this.setState({ submitted: true });
     let answerKey = [...this.state.chords];
     let userAnswers = [...this.state.answers];
@@ -168,8 +183,13 @@ class App extends Component {
     });
     this.setState({ isCorrect: isCorrect });
     let answerObj = {keyName: this.state.key[0], answers};
-    if (this.state.currentUsername) {
-      axios.post(`${this.url}/server/answers`, answerObj);
+    let user = await this.checkStatus();
+    if (user) {
+      axios.post(`${this.url}/server/answers`, answerObj)
+      .then(message => {
+        console.log('SUBMITTED AND GETTING PROGRESS DATA');
+        this.getProgressData();
+      })
     } 
   };
 
