@@ -12,7 +12,7 @@ class NavBar extends Component {
         </li>
 
         <li className={!isLoggedIn ? 'hidden' : ''}>
-          <Link to={'/progress'}  onClick={this.props.getProgressData}>Progress</Link>
+          <Link to={'/progress'}>Progress</Link>
         </li>
 
         <li className={isLoggedIn ? 'hidden' : ''}>
