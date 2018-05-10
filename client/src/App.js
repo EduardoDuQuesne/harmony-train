@@ -150,7 +150,7 @@ class App extends Component {
   //LOADS NEW CHORD PROGRESSION
   newProgression = () => {
     let k = randomKey();  
-    let chords = keys[8];
+    let chords = keys[k];
     let chordProgression = [];
     for (let i = 0; i < 7; i++) {
       let c = randomChord();
@@ -219,6 +219,11 @@ class App extends Component {
         });
       });
     }
+  }
+
+  //RESET USER DATA
+  resetData = () => {
+    console.log('RESET DATA YO');
   }
 
   //NEXT QUESTION
@@ -315,6 +320,7 @@ class App extends Component {
                   majorProgress={this.state.majorProgress}
                   minorProgress={this.state.minorProgress}
                   username={this.state.currentUsername}
+                  resetData={this.resetData}
                 />
               );
             }} 
