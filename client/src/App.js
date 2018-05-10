@@ -37,6 +37,7 @@ class App extends Component {
     minorProgress: [],
     majorRootProgress: [],
     minorRootProgress: [],
+    totalScore: null,
     toneProgression: []
   };
 
@@ -52,7 +53,7 @@ class App extends Component {
         currentUsername: username,
         currentUserId: id
         })
-        this.getProgressData();
+        // this.getProgressData();
     });
   }
 
@@ -150,7 +151,7 @@ class App extends Component {
   //LOADS NEW CHORD PROGRESSION
   newProgression = () => {
     let k = randomKey();  
-    let chords = keys[8];
+    let chords = keys[k];
     let chordProgression = [];
     for (let i = 0; i < 7; i++) {
       let c = randomChord();
@@ -216,6 +217,12 @@ class App extends Component {
       .then(({data}) => {
         this.setState({
           minorProgress: data
+        });
+      });
+      axios.get(`${this.url}/server/progress/overview/total`)
+      .then(({data: { score: totalScore}}) => {
+        this.setState({
+          totalScore
         });
       });
     }
