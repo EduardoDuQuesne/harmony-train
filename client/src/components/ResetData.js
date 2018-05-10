@@ -4,7 +4,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-class ClearData extends Component {
+class ResetData extends Component {
   state = {
     open: false
   }
@@ -59,4 +59,4 @@ class ClearData extends Component {
     );
   }
 }
-export default ClearData;
+export default ResetData;

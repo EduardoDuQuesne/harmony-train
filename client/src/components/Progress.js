@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ClearData from './ClearData';
+import ResetData from './ResetData';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ProgressOverview from "./ProgressOverview";
 import MajorProgress from "./MajorProgress";
@@ -28,7 +28,7 @@ class Progress extends Component {
                 <MinorProgress minorProgress={this.props.minorProgress} />
               </Tab>
             </Tabs>
-            <ClearData resetData={this.props.resetData} />        
+            <ResetData resetData={this.props.resetData} />        
         </div>
         </MuiThemeProvider>
     );

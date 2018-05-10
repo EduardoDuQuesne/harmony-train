@@ -106,3 +106,17 @@ module.exports.getTotalScore = async (req, res) => {
     res.status(200).json({score});
   }
 }
+
+
+module.exports.resetData = (req, res, next) => {
+  let { Answer } = req.app.get('models');
+  let {id: userId } = req.app.get('user');
+  if (userId) {
+    Answer.destroy({
+      where: {userId}
+    })
+    .then(() => {
+      res.status(200).json({message: "You harmonic data has been reset"});
+    });
+  }
+}
