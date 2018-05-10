@@ -5,7 +5,7 @@ class ProgressOverview extends Component {
   
   render() {
     return (
-      <h1>{this.props.username} </h1>
+      <h1>Welcome: {this.props.username} </h1>
     );
   }
 }
