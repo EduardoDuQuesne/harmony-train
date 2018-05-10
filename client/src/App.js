@@ -37,6 +37,7 @@ class App extends Component {
     minorProgress: [],
     majorRootProgress: [],
     minorRootProgress: [],
+    totalScore: null,
     toneProgression: []
   };
 
@@ -52,7 +53,7 @@ class App extends Component {
         currentUsername: username,
         currentUserId: id
         })
-        this.getProgressData();
+        // this.getProgressData();
     });
   }
 
@@ -216,6 +217,12 @@ class App extends Component {
       .then(({data}) => {
         this.setState({
           minorProgress: data
+        });
+      });
+      axios.get(`${this.url}/server/progress/overview/total`)
+      .then(({data: { score: totalScore}}) => {
+        this.setState({
+          totalScore
         });
       });
     }
