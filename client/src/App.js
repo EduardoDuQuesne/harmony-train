@@ -230,7 +230,11 @@ class App extends Component {
 
   //RESET USER DATA
   resetData = () => {
-    console.log('RESET DATA YO');
+    axios.delete(`${this.url}/server/progress/reset`)
+    .then(({data: message}) => {
+      console.log('DATA: ', message );
+      this.getProgressData();
+    });
   }
 
   //NEXT QUESTION
