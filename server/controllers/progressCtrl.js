@@ -12,7 +12,7 @@ module.exports.getProgressByKey = async (req, res, next) => {
       where: {type: req.params.type}
     });
     //GIANT PROGRESS ARRAY
-    let progressArray = [];
+    let statsArray = [];
     //LOOP THROUGH KEYS
     for (let i = 0; i < keys.length; i++) {
       keyTotal = 0;
@@ -31,31 +31,50 @@ module.exports.getProgressByKey = async (req, res, next) => {
           });
           //LOOP AND GET STATS ON EACH CHORD IN CURRENT KEY
           for (let j = 0; j < 7; j++) {
-            let correct = await Answer.findAndCount({
+            let {count: correct} = await Answer.findAndCount({
               raw: true,
               where: {keyId: keys[i].id, chordId: chords[j].chordId, correct: true}
             });
-    
-            let incorrect = await Answer.findAndCount({
+            let {count: incorrect} = await Answer.findAndCount({
               raw: true,
               where: {userId: userId, keyId: keys[i].id, chordId: chords[j].chordId, correct: false}
             });
-            let total = correct.count + incorrect.count;
+            let total = correct + incorrect;
             keyTotal = await keyTotal + total;
             console.log("KEY TOTAL: ", total, keyTotal );
             let chordStats = {
               chordName: chords[j]['Chord.name'],
-              percentage: ((correct.count / total) * 100).toFixed(0),
-              correct: correct.count,
-              incorrect: incorrect.count,
+              percentage: ((correct / total) * 100).toFixed(0),
+              correct: correct,
+              incorrect: incorrect,
               total
             };
             chordObj.progress.push(chordStats)
           }
           console.log('Key Total: ', keyTotal );
-          progressArray.push(chordObj);
-          
+          statsArray.push(chordObj);         
     }
-    res.status(200).json(progressArray);
+    res.status(200).json(statsArray);
   }
+}
+
+module.exports.getProgressByRoot =  async (req, res, next) => {
+  let { Answer } = req.app.get('models');
+  let {id: userId } = req.app.get('user');
+  let { keyType } = req.params;
+  let statsArray = [];
+  for (let i = 1; i < 8; i++) {
+    let {count: correct} = await Answer.findAndCount({
+      raw: true,
+      where: {correct: true, keyType, chordRoot: i}
+    });
+    let {count: incorrect} = await Answer.findAndCount({
+      raw: true,
+      where: {correct: false, keyType, chordRoot: i}
+    });
+    let total = correct + incorrect;
+    let statObj = {chordRoot: i, percentage: ((correct / total) * 100).toFixed(0) }
+    statsArray.push(statObj);
+  } 
+  res.status(200).json(statsArray);
 }
