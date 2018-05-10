@@ -178,7 +178,8 @@ class App extends Component {
     let answers = [];
     let isCorrect = answerKey.map((answer, i) => { 
       let correct =  answer === userAnswers[i] ? true : false;
-      answers.push({chord: answer, correct});
+      let chordRoot = this.state.key.indexOf(answer) + 1;
+      answers.push({chord: answer, correct, chordRoot});
       return correct;
     });
     this.setState({ isCorrect: isCorrect });
@@ -304,6 +305,7 @@ class App extends Component {
                   getProgressData={this.getProgressData}
                   majorProgress={this.state.majorProgress}
                   minorProgress={this.state.minorProgress}
+                  username={this.state.currentUsername}
                 />
               );
             }} 
