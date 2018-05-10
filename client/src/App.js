@@ -228,6 +228,11 @@ class App extends Component {
     }
   }
 
+  //RESET USER DATA
+  resetData = () => {
+    console.log('RESET DATA YO');
+  }
+
   //NEXT QUESTION
   nextQuestion = () => {
     this.newProgression();
@@ -322,6 +327,7 @@ class App extends Component {
                   majorProgress={this.state.majorProgress}
                   minorProgress={this.state.minorProgress}
                   username={this.state.currentUsername}
+                  resetData={this.resetData}
                 />
               );
             }} 

@@ -28,12 +28,6 @@ class Chords extends Component {
             );
           })}
         </div>
-        {/* <button onClick={this.props.submitAnswer} hidden={isSubmitted}>
-          Submit Answer
-        </button> */}
-        {/* <button onClick={this.props.nextQuestion} hidden={!isSubmitted}>
-          Next Question
-        </button> */}
         <MuiThemeProvider>
           <div>
             <RaisedButton onClick={this.props.submitAnswer} className={`${isSubmitted ? "hide-btn" : ""}`} label="Submit Answer"  />
