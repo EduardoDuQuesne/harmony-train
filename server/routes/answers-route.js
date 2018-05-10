@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getKeyId } = require('../controllers/answerCtrl');
+const { storeAnswers } = require('../controllers/answerCtrl');
 
-router.post("/server/answers", getKeyId);
+router.post("/server/answers", storeAnswers);
 
 module.exports = router;

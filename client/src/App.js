@@ -35,6 +35,8 @@ class App extends Component {
     open: false,
     majorProgress: [],
     minorProgress: [],
+    majorRootProgress: [],
+    minorRootProgress: [],
     toneProgression: []
   };
 
@@ -50,15 +52,14 @@ class App extends Component {
         currentUsername: username,
         currentUserId: id
         })
+        this.getProgressData();
     });
   }
 
   //LOG IN
   login = user => {
-    console.log('CLIENT USER: ', user);
     axios.post(`${this.url}/server/login`, user)
     .then(user => {
-      console.log('USER: ', user );
       this.history.push('/');
       this.setState({ 
         message: "",
@@ -77,7 +78,6 @@ class App extends Component {
 
   //LOG OUT
   logout = () => {
-    console.log('LOG OUT CLICKED');
     axios.post(`${this.url}/server/logout`)
     .then(data => {
       this.setState({
@@ -87,9 +87,9 @@ class App extends Component {
         currentUserId: null,
         open : false
       })
-      console.log('Client Logout: ', data );
     })
     .catch(err => {
+      //TODO: Handle Error
       console.log('Client Logout Error: ', err);
     });
     this.setState({ isLoggedIn: false });
@@ -103,7 +103,6 @@ class App extends Component {
     }
     axios.post(`${this.url}/server/register`, newUser)
     .then(user => {
-      console.log('CLIENT USER: ', user );
       axios.post(`${this.url}/server/login`, {username: newUser.username, password: newUser.password});
       this.history.push('/');
       this.setState({
@@ -151,7 +150,7 @@ class App extends Component {
   //LOADS NEW CHORD PROGRESSION
   newProgression = () => {
     let k = randomKey();  
-    let chords = keys[k];
+    let chords = keys[8];
     let chordProgression = [];
     for (let i = 0; i < 7; i++) {
       let c = randomChord();
@@ -188,22 +187,32 @@ class App extends Component {
     if (user) {
       axios.post(`${this.url}/server/answers`, answerObj)
       .then(message => {
-        console.log('SUBMITTED AND GETTING PROGRESS DATA');
-        this.getProgressData();
+        // this.getProgressData();
       })
     } 
   };
 
   getProgressData = () => {
     if (this.state.currentUsername) {
+      axios.get(`${this.url}/server/progress/root_stats/major`)
+      .then(({data}) => {
+        this.setState({
+          majorRootProgress: data
+        });
+      });
+      axios.get(`${this.url}/server/progress/root_stats/minor`)
+      .then(({data}) => {
+        this.setState({
+          minorRootProgress: data
+        });
+      });
       axios.get(`${this.url}/server/progress/major`)
       .then(({data}) => {
-        console.log('LOGGED IN AND PROGRESS CLICKED: ', data );
         this.setState({
           majorProgress: data
         })
-        return axios.get(`${this.url}/server/progress/minor`);
-      })
+      });
+      axios.get(`${this.url}/server/progress/minor`)
       .then(({data}) => {
         this.setState({
           minorProgress: data

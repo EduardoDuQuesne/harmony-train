@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     'Answer',
     {
       correct: DataTypes.BOOLEAN,
+      keyType: DataTypes.STRING,
       chordRoot: DataTypes.INTEGER,
     },
     { tableName: 'answers' },

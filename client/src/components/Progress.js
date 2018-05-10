@@ -7,6 +7,7 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 
 class Progress extends Component {
   componentDidMount = () => {
+    console.log('MOUNTED');
     this.props.getProgressData();
   }
   render() {
