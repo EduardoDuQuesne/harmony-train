@@ -6,10 +6,11 @@ import Training from './components/Training';
 import Login from './components/Login';
 import Register from './components/Register';
 import Progress from './components/Progress';
+import SnackBar from './components/SnackBar';
 import NotFound from './components/NotFound';
 //HELPER FUNCTIONS AND DATA
 import { randomChord, randomKey } from './helpers.js';
-import keys from './chords';
+import { keys, majNumerals, minNumerals } from './chords';
 //DEPENDENCIES
 import { createBrowserHistory as createHistory } from "history";
 import axios from 'axios';
@@ -35,8 +36,10 @@ class App extends Component {
     open: false,
     majorProgress: [],
     minorProgress: [],
-    majorRootProgress: [],
-    minorRootProgress: [],
+    majorRootProgress: null,
+    minorRootProgress: null,
+    majNumerals: majNumerals,
+    minNumerals: minNumerals,
     totalScore: null,
     toneProgression: []
   };
@@ -63,7 +66,7 @@ class App extends Component {
     .then(user => {
       this.history.push('/');
       this.setState({ 
-        message: "",
+        message: `Welcome ${user.data.username}`,
         isLoggedIn: true,
         currentUsername: user.data.username,
         currentUserId: user.data.id,
@@ -107,7 +110,7 @@ class App extends Component {
       axios.post(`${this.url}/server/login`, {username: newUser.username, password: newUser.password});
       this.history.push('/');
       this.setState({
-        message: "",
+        message: `Welcome ${this.user.data.username}`,
         isLoggedIn: true,
         currentUsername: user.data.username,
         currentUserId: user.data.id,
@@ -141,10 +144,11 @@ class App extends Component {
     })
   }
 
-  //HANDLE SNACKBAR FOR REGISTRATION
+  //HANDLE CLOSTING SNACKBAR
   closeSnackBar = () => {
     this.setState({
-      open: false
+      open: false,
+      message: ""
     })
   }
 
@@ -231,8 +235,11 @@ class App extends Component {
   //RESET USER DATA
   resetData = () => {
     axios.delete(`${this.url}/server/progress/reset`)
-    .then(({data: message}) => {
-      console.log('DATA: ', message );
+    .then(({data: {message}}) => {
+      this.setState({
+        open: true,
+        message: message
+      });
       this.getProgressData();
     });
   }
@@ -291,9 +298,7 @@ class App extends Component {
                     dragOver={this.dragOver}
                     dragStart={this.dragStart}
                     chordChoices={this.state.key}
-                    open={this.state.open}
-                    username={this.state.currentUsername}
-                    closeSnackBar={this.closeSnackBar}
+                    
                     toneProgression={this.state.toneProgression}
                   />
                 );
@@ -330,8 +335,13 @@ class App extends Component {
                   getProgressData={this.getProgressData}
                   majorProgress={this.state.majorProgress}
                   minorProgress={this.state.minorProgress}
+                  majorRoot={this.state.majorRootProgress}
+                  minorRoot={this.state.minorRootProgress}
                   username={this.state.currentUsername}
                   resetData={this.resetData}
+                  totalScore={this.state.totalScore}
+                  majNumerals={this.state.majNumerals}
+                  minNumerals={this.state.minNumerals}
                 />
               );
             }} 
@@ -339,6 +349,12 @@ class App extends Component {
 
             <Route exact component={NotFound} />
           </Switch>
+          <SnackBar 
+            open={this.state.open}
+            username={this.state.currentUsername}
+            closeSnackBar={this.closeSnackBar}
+            message={this.state.message}
+          />
         </div>
       </Router>
     );

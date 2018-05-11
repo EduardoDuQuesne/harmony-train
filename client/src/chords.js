@@ -51,4 +51,24 @@ const keys = [
   Bmaj,
   GSmin,
 ];
-module.exports = keys;
+
+let majNumerals = [
+  {num: "I", type: "maj"}, 
+  {num: "ii", type: "min"}, 
+  {num: "iii", type: "min"}, 
+  {num: "IV", type: "maj"}, 
+  {num: "V", type: "maj"}, 
+  {num: "vi", type: "min"}, 
+  {num: "vii", type: "dim"}
+];
+let minNumerals = [
+  {num: "i", type: "min"}, 
+  {num: "ii", type: "dim"},
+  {num: "III", type: "maj"}, 
+  {num: "iv", type: "min"}, 
+  {num: "v", type: "min"}, 
+  {num: "VI", type: "maj"}, 
+  {num: "VII", type: "maj"} 
+];
+
+module.exports = { keys, majNumerals, minNumerals };

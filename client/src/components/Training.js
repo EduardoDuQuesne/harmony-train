@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Snackbar from 'material-ui/Snackbar';
 import Chords from './Chords';
 import Choices from './Choices';
 
@@ -24,16 +22,6 @@ class Training extends Component {
           dragStart={this.props.dragStart}
           chordChoices={this.props.chordChoices}
         />
-
-        <MuiThemeProvider>
-          <Snackbar
-              open={this.props.open}
-              message={`Welcome ${this.props.username}`}
-              autoHideDuration={4000}
-              onRequestClose={this.props.closeSnackBar}
-            />
-        </MuiThemeProvider>
-
       </div>
     );
   }

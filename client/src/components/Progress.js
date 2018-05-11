@@ -7,26 +7,40 @@ import MinorProgress from "./MinorProgress";
 import {Tabs, Tab} from 'material-ui/Tabs';
 
 class Progress extends Component {
-  
+
   componentDidMount = () => {
-    console.log('PROGRESS MOUNTED');
     this.props.getProgressData();
   }
-
+  
   render() {
     return (
       <MuiThemeProvider>
         <div>
             <Tabs>
+
               <Tab label="Overview">
-                <ProgressOverview username={this.props.username} />
+                <ProgressOverview 
+                  username={this.props.username} 
+                  majNumerals={this.props.majNumerals} 
+                  minNumerals={this.props.minNumerals} 
+                  majorRoot={this.props.majorRoot}                  
+                  minorRoot={this.props.minorRoot}  
+                  totalScore={this.props.totalScore}
+                />
               </Tab>
+
               <Tab label="Major Keys">
-                <MajorProgress majorProgress={this.props.majorProgress}/>
+                <MajorProgress 
+                  majorProgress={this.props.majorProgress}
+                />
               </Tab>
+
               <Tab label="Minor Keys">        
-                <MinorProgress minorProgress={this.props.minorProgress} />
+                <MinorProgress 
+                  minorProgress={this.props.minorProgress} 
+                />
               </Tab>
+
             </Tabs>
             <ResetData resetData={this.props.resetData} />        
         </div>
