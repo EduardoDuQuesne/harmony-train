@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
+import RootBar from './RootBar';
 
 class RootMajor extends Component {  
 
-  renderProgress = (num, i) => {
+  renderChart = () => {
     let rootStats = this.props.majorRoot;
     if (rootStats) { 
       return (
-        <div key={num.num}>
-          <h4>{rootStats[i].percentage}</h4>
-          <h2 key={num.num}>{num.num}<span className="sup-script">{num.type}</span></h2>
-        </div>
+        <RootBar root={this.props.majorRoot} numerals={this.props.majNumerals} />
         )
     }
   }
 
   render() {
-    let majNumerals = this.props.majNumerals;
     return (
       <div>
-        {majNumerals.map(this.renderProgress)}
+        {this.renderChart()}
       </div>
     );
   }

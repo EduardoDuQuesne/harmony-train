@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import RegisterForm from './RegisterForm';
+import '../css/register.css'
 
-class Login extends Component {
+class Register extends Component {
 
 
   render() {
     return (
         <div>
-          <h1>Register</h1>
+          <h1 className="register-header">register</h1>
           <RegisterForm register={this.props.register} />
           <p>{this.props.message}</p>
         </div>
     );
   }
 }
-export default Login;
+export default Register;

@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
+import RootBar from './RootBar';
 
 class RootMinor extends Component {  
 
-  renderProgress = (num, i) => {
+  renderChart = () => {
     let rootStats = this.props.minorRoot;
     if (rootStats) { 
       return (
-        <div key={num.num}>
-          <h4>{rootStats[i].percentage}</h4>
-          <h2 key={num.num}>{num.num}<span className="sup-script">{num.type}</span></h2>
-        </div>
+        <RootBar root={this.props.minorRoot} numerals={this.props.minNumerals} />
         )
     }
   }
 
   render() {
-    let minNumerals = this.props.minNumerals;
     return (
       <div>
-        {minNumerals.map(this.renderProgress)}
+        {this.renderChart()}
       </div>
     );
   }

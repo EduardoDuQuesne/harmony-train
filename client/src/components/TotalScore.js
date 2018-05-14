@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-
+import TotalPie from './TotalPie';
+import '../css/totalScore.css'
 class TotalScore extends Component {  
   render() {
-    console.log("total score",this.props.totalScore);
     return (
-      <div>
-        <h2>{this.props.totalScore}%</h2>
-        <h2>Total Score</h2>
+      <div className="total-container">
+        <div>
+          <h2>total score</h2>
+
+          <h2 className="score">{this.props.totalScore}%</h2>
+        </div>
+        <div>
+          <TotalPie totalScore={this.props.totalScore} />
+        </div>
       </div>
     );
   }

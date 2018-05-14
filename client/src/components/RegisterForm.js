@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import '../css/registerForm.css';
 
 class RegisterForm extends Component {
   username = React.createRef();
@@ -22,42 +23,52 @@ class RegisterForm extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div>
-          <TextField
-            ref={input => {
-              this.username = input;
-            }}
-            hintText=""
-            floatingLabelText="Username"
-            name="username"
-          />
-          <TextField
-            ref={input => {
-              this.email = input;
-            }}
-            hintText=""
-            floatingLabelText="Email"
-            name="email"
-          />
-          <TextField
-            ref={input => {
-              this.password = input;
-            }}
-            hintText=""
-            floatingLabelText="Password"
-            name="password"
-            type="password"
-          />
-          <TextField
-            ref={input => {
-              this.confirm = input;
-            }}
-            hintText=""
-            floatingLabelText="Confirm Password"
-            name="confirm"
-            type="password"
-          />
-          <RaisedButton label="Register" onClick={this.handleClick} />
+        <div className="register-form">
+          <div>
+            <TextField
+              ref={input => {
+                this.username = input;
+              }}
+              hintText=""
+              floatingLabelText="Username"
+              name="username"
+            />
+          </div>
+          <div>
+            <TextField
+              ref={input => {
+                this.email = input;
+              }}
+              hintText=""
+              floatingLabelText="Email"
+              name="email"
+            />
+          </div>
+          <div>
+            <TextField
+              ref={input => {
+                this.password = input;
+              }}
+              hintText=""
+              floatingLabelText="Password"
+              name="password"
+              type="password"
+            />
+          </div>
+          <div>
+            <TextField
+              ref={input => {
+                this.confirm = input;
+              }}
+              hintText=""
+              floatingLabelText="Confirm Password"
+              name="confirm"
+              type="password"
+            />
+          </div>
+          <div>
+            <RaisedButton label="Register" onClick={this.handleClick} />
+          </div>
         </div>
       </MuiThemeProvider>
     );

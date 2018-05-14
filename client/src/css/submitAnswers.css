@@ -1,0 +1,8 @@
+.submit-answers {
+  display: block;
+  text-align: center;
+}
+
+.control-btns {
+  display: flex;
+}
