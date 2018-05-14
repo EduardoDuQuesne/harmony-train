@@ -1,0 +1,10 @@
+.total-container {
+  display: flex;
+  margin: 60px auto 0 auto;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.score {
+  text-align: center;
+}

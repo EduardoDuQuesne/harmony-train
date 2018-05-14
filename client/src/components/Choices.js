@@ -7,7 +7,7 @@ class Choices extends Component {
     let chordChoices = this.props.chordChoices;
     return (
       <div>
-        <h2>Selection:</h2>
+        <h2>choices</h2>
         <div className="choice-flex">
           {chordChoices.map(chord => (
             <ChoiceCircles

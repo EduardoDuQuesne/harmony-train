@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MajorProgressCircles from './MajorProgressCircles';
+import KeyBar from './KeyBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import '../css/majorProgress.css';
@@ -14,7 +14,7 @@ class MajorProgress extends Component {
           {keys.map(key => {
             return (  
               <Tab label={key.keyName} key={key.keyName}>
-                <MajorProgressCircles keyName={key.keyName}  chords={key.progress} />
+                <KeyBar keyName={key.keyName}  chords={key.progress} />
               </Tab>
               )
           })}

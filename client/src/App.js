@@ -41,7 +41,8 @@ class App extends Component {
     majNumerals: majNumerals,
     minNumerals: minNumerals,
     totalScore: null,
-    toneProgression: []
+    toneProgression: [],
+    playing: false
   };
 
   //ON COMPONENT MOUNT, LOAD CHORD PROGRESSION
@@ -89,7 +90,12 @@ class App extends Component {
         isLoggedIn: false,
         currentUsername: null,
         currentUserId: null,
-        open : false
+        open : false,
+        majorProgress: [],
+        minorProgress: [],
+        majorRootProgress: null,
+        minorRootProgress: null,
+        totalScore: null
       })
     })
     .catch(err => {
@@ -197,6 +203,19 @@ class App extends Component {
     } 
   };
 
+  //SET PLAY STATE
+  setStatePlay = () => {
+    this.setState({
+      playing: true
+    });
+  }
+  //SET STOP STATE
+  setStateStop = () => {
+    this.setState({
+      playing: false
+    });
+  }
+  //GET USER DATA
   getProgressData = () => {
     if (this.state.currentUsername) {
       axios.get(`${this.url}/server/progress/root_stats/major`)
@@ -298,8 +317,10 @@ class App extends Component {
                     dragOver={this.dragOver}
                     dragStart={this.dragStart}
                     chordChoices={this.state.key}
-                    
                     toneProgression={this.state.toneProgression}
+                    setStatePlay={this.setStatePlay}
+                    setStateStop={this.setStateStop}
+                    playing={this.state.playing}
                   />
                 );
               }}

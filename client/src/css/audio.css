@@ -1,0 +1,8 @@
+.play-btn,
+.stop-btn {
+  margin-left: 15px;
+}
+
+.hide-btn {
+  display: none;
+}

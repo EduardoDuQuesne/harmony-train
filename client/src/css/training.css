@@ -1,0 +1,14 @@
+.train-container {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.train-items {
+  margin-right: 5%;
+}
+
+.flex-two {
+  width: 40%;
+}
