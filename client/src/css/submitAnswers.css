@@ -1,8 +1,11 @@
 .submit-answers {
   display: block;
   text-align: center;
+  padding-top: 25px;
 }
 
 .control-btns {
   display: flex;
+  justify-content: space-evenly;
+  height: 36px;
 }

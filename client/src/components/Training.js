@@ -26,9 +26,11 @@ class Training extends Component {
                   submitAnswer={this.props.submitAnswer}
                   submitted={this.props.submitted}
                   toneProgression={this.props.toneProgression}
-                  setStatePlay={this.props.setStatePlay}
-                  setStateStop={this.props.setStateStop}
                   playing={this.props.playing}
+                  playProgression={this.props.playProgression}
+                  stopProgression={this.props.stopProgression}
+                  changeTempo={this.props.changeTempo}
+
                 />
               </div>
             </div>

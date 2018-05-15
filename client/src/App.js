@@ -8,6 +8,9 @@ import Register from './components/Register';
 import Progress from './components/Progress';
 import SnackBar from './components/SnackBar';
 import NotFound from './components/NotFound';
+//AUDIO 
+import Tone from 'tone'
+import { piano } from './tone';
 //HELPER FUNCTIONS AND DATA
 import { randomChord, randomKey } from './helpers.js';
 import { keys, majNumerals, minNumerals } from './chords';
@@ -42,7 +45,7 @@ class App extends Component {
     minNumerals: minNumerals,
     totalScore: null,
     toneProgression: [],
-    playing: false
+    playing: false,
   };
 
   //ON COMPONENT MOUNT, LOAD CHORD PROGRESSION
@@ -181,6 +184,9 @@ class App extends Component {
   //SUBMIT USER ANSWERS
   userAnswers = [];
   submitAnswer = async () => {
+    Tone.Transport.stop();
+    this.pianoLoop.stop();
+    this.setStateStop();
     this.setState({ submitted: true });
     let answerKey = [...this.state.chords];
     let userAnswers = [...this.state.answers];
@@ -201,6 +207,15 @@ class App extends Component {
         // this.getProgressData();
       })
     } 
+  };
+
+  //NEXT QUESTION
+  nextQuestion = () => {
+    Tone.Transport.stop();
+    this.pianoLoop.stop();
+    this.setStateStop();
+    this.newProgression();
+    this.setState({ submitted: false, isCorrect: [] });
   };
 
   //SET PLAY STATE
@@ -263,11 +278,35 @@ class App extends Component {
     });
   }
 
-  //NEXT QUESTION
-  nextQuestion = () => {
-    this.newProgression();
-    this.setState({ submitted: false, isCorrect: [] });
-  };
+  /////AUDIO FUNCTIONS
+  //Piano Loop
+  pianoLoop = new Tone.Sequence((time, col) => { 
+    piano.get(this.state.toneProgression[col]).start(time, 0, "1n", 0);   
+    if(col === 7) { 
+      this.stopProgression();  
+      this.setStateStop();
+    }  
+  }, [0, 1, 2, 3, 4, 5, 6, 7], "1n");
+
+  //PLAY PIANO PROGRESSION
+  playProgression = () => {
+    Tone.Transport.start();
+    this.pianoLoop.start();
+    this.setStatePlay();
+  }
+
+  //STOP PIANO PROGRESSION
+  stopProgression = () => {
+    Tone.Transport.stop();
+    this.pianoLoop.stop();
+    this.setStateStop();
+  }
+
+  //CHANGE TEMPO
+  changeTempo = (tempo) => {    
+    Tone.Transport.bpm.value = tempo
+  }
+
 
   // DRAG AND DROP
   dragStart = (e, chord) => {
@@ -318,9 +357,10 @@ class App extends Component {
                     dragStart={this.dragStart}
                     chordChoices={this.state.key}
                     toneProgression={this.state.toneProgression}
-                    setStatePlay={this.setStatePlay}
-                    setStateStop={this.setStateStop}
+                    playProgression={this.playProgression}
+                    stopProgression={this.stopProgression}
                     playing={this.state.playing}
+                    changeTempo={this.changeTempo}
                   />
                 );
               }}
