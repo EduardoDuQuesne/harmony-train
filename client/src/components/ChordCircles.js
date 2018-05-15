@@ -4,8 +4,9 @@ import '../css/chordCircles.css';
 class ChordCircles extends Component {
   render() {
     let isCorrect = this.props.isCorrect;
+    let isPlaying = +this.props.bar === +this.props.currentBar && this.props.currentBar !==null;
     return (
-      <div className="circles">
+      <div className={`circles ${isPlaying ? "play" : ""}`}>
         <p
           className={`answer-${
             isCorrect
@@ -22,7 +23,7 @@ class ChordCircles extends Component {
           }}
         >
           {' '}
-          {this.props.bar}
+          {+this.props.bar + 1}
         </p>
       </div>
     );

@@ -8,19 +8,19 @@ class NavBar extends Component {
     return (
       <ul>
         <li>
-          <Link to={'/'}>Train</Link>
+          <Link className="react-link" to={'/'}>Train</Link>
         </li>
 
         <li className={!isLoggedIn ? 'hidden' : ''}>
-          <Link to={'/progress'}>Progress</Link>
+          <Link className="react-link" to={'/progress'}>Progress</Link>
         </li>
 
         <li className={isLoggedIn ? 'hidden' : ''}>
-          <Link to={'/login'} onClick={this.props.updateState}>Login </Link>
+          <Link className="react-link" to={'/login'} onClick={this.props.updateState}>Login </Link>
         </li>
 
         <li className={isLoggedIn ? 'hidden' : ''}>
-          <Link to={'/register'} onClick={this.props.updateState}>Register </Link>
+          <Link className="react-link" to={'/register'} onClick={this.props.updateState}>Register </Link>
         </li>
 
         <li onClick={this.props.logout} className={!isLoggedIn ? 'hidden' : ''}>

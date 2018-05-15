@@ -8,7 +8,7 @@ class KeyBar extends Component {
   render() {
     const chords = this.props.chords;
     return (
-    <div className="root-major-chart">
+    <div className="key-chart">
        <VictoryChart>
         <VictoryBar
           domain={{ y: [0, 100]}}

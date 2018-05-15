@@ -3,6 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import '../css/resetData.css';
 
 class ResetData extends Component {
   state = {
@@ -43,8 +44,8 @@ class ResetData extends Component {
     return (
 
       <MuiThemeProvider>
-        <div>
-          <RaisedButton onClick={this.handleOpen} label="Reset Data"  />
+        <div className="reset-container">
+          <RaisedButton className="reset-btn" onClick={this.handleOpen} label="Reset Data"  />
           <Dialog
             actions={actions}
             modal={false}

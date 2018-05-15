@@ -19,6 +19,11 @@ p.text-circles {
   text-align: center;
   font-size: 1.5em;
 }
+.play {
+  background-color: red;
+  transition: background-color .5s;
+}
+
 
 @media (max-width: 440px) {
   .circles {
