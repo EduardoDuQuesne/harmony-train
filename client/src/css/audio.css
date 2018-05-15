@@ -3,6 +3,10 @@
   margin-left: 15px;
 }
 
+.audio-btn-div {
+  padding-top: 25px;
+}
+
 .hide-btn {
   display: none;
 }
