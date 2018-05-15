@@ -18,6 +18,7 @@ class Training extends Component {
                   onDragDrop={this.props.onDragDrop}
                   dragOver={this.props.dragOver}
                   toneProgression={this.props.toneProgression}
+                  currentBar={this.props.currentBar}
                 />
               </div>
               <div>

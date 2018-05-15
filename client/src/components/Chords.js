@@ -14,11 +14,12 @@ class Chords extends Component {
             return (
               <ChordCircles
                 isCorrect={this.props.isCorrect[i]}
+                currentBar={this.props.currentBar}
                 key={`${chord} + ${i}`}
                 dragOver={this.props.dragOver}
                 index={i}
                 onDragDrop={this.props.onDragDrop}
-                bar={`${i + 1}`}
+                bar={`${i}`}
               />
             );
           })}

@@ -10,7 +10,6 @@ import SnackBar from './components/SnackBar';
 import NotFound from './components/NotFound';
 //AUDIO 
 import Tone from 'tone'
-import { piano } from './tone';
 //HELPER FUNCTIONS AND DATA
 import { randomChord, randomKey } from './helpers.js';
 import { keys, majNumerals, minNumerals } from './chords';
@@ -46,6 +45,7 @@ class App extends Component {
     totalScore: null,
     toneProgression: [],
     playing: false,
+    currentBar: null
   };
 
   //ON COMPONENT MOUNT, LOAD CHORD PROGRESSION
@@ -78,10 +78,10 @@ class App extends Component {
       })      
     })
     .catch(err => {
-      this.setState({
-        message: err.response.data.message
-      })
-    });
+        this.setState({
+          message: err.response.data.message
+        })
+    })
   };
 
   //LOG OUT
@@ -279,17 +279,68 @@ class App extends Component {
   }
 
   /////AUDIO FUNCTIONS
+  piano = new Tone.Players({
+    "Abmaj": require("./audio/Abmaj.mp3"),
+    "Abmin": require("./audio/Abmin.mp3"),
+    "Amaj": require("./audio/Amaj.mp3"),
+    "Amin": require("./audio/Amin.mp3"),
+    "Aminb5": require("./audio/Aminb5.mp3"),
+    "ASminb5": require("./audio/ASminb5.mp3"),
+    "Bbmin": require("./audio/Bbmin.mp3"),
+    "Bmin": require("./audio/Bmin.mp3"),
+    "Bbmaj": require("./audio/Bbmaj.mp3"),
+    "Bminb5": require("./audio/Bminb5.mp3"),
+    "Bmaj": require("./audio/Bmaj.mp3"),
+    "Cbmaj": require("./audio/Cbmaj.mp3"),
+    "CSmin": require("./audio/CSmin.mp3"),
+    "Cmaj": require("./audio/Cmaj.mp3"),
+    "Cmin": require("./audio/Cmin.mp3"),
+    "Cminb5": require("./audio/Cminb5.mp3"),
+    "CSminb5": require("./audio/CSminb5.mp3"),
+    "Dbmaj": require("./audio/Dbmaj.mp3"),
+    "Dmin": require("./audio/Dmin.mp3"),
+    "Dminb5": require("./audio/Dminb5.mp3"),
+    "Dmaj": require("./audio/Dmaj.mp3"),
+    "DSmin": require("./audio/DSmin.mp3"),
+    "DSminb5": require("./audio/DSminb5.mp3"),
+    "Ebmin": require("./audio/Ebmin.mp3"),
+    "Ebmaj": require("./audio/Ebmaj.mp3"),
+    "Eminb5": require("./audio/Eminb5.mp3"),
+    "Emaj": require("./audio/Emaj.mp3"),
+    "Emin": require("./audio/Emin.mp3"),
+    "Fmaj": require("./audio/Fmaj.mp3"),
+    "Fmin": require("./audio/Fmin.mp3"),
+    "Fminb5": require("./audio/Fminb5.mp3"),
+    "FSmaj": require("./audio/FSmaj.mp3"),
+    "FSmin": require("./audio/FSmin.mp3"),
+    "FSminb5": require("./audio/FSminb5.mp3"),
+    "Gbmaj": require("./audio/Gbmaj.mp3"),
+    "Gmaj": require("./audio/Gmaj.mp3"),
+    "Gmin": require("./audio/Gmin.mp3"),
+    "Gminb5": require("./audio/Gminb5.mp3"),
+    "GSmin": require("./audio/GSmin.mp3"),
+    "GSminb5": require("./audio/GSminb5.mp3")
+  }, {
+    "volume": 0,
+    "fadeOut": "32n",
+  }).toMaster();
   //Piano Loop
   pianoLoop = new Tone.Sequence((time, col) => { 
-    piano.get(this.state.toneProgression[col]).start(time, 0, "1n", 0);   
+    this.setState({
+      currentBar: col
+    });
+    this.piano.get(this.state.toneProgression[col]).start(time, 0, "1n", 0);   
     if(col === 7) { 
       this.stopProgression();  
-      this.setStateStop();
+      this.setStateStop();   
     }  
   }, [0, 1, 2, 3, 4, 5, 6, 7], "1n");
 
   //PLAY PIANO PROGRESSION
   playProgression = () => {
+    if (Tone.context.state !== 'running') {
+      Tone.context.resume();
+    }
     Tone.Transport.start();
     this.pianoLoop.start();
     this.setStatePlay();
@@ -300,6 +351,9 @@ class App extends Component {
     Tone.Transport.stop();
     this.pianoLoop.stop();
     this.setStateStop();
+    setTimeout(() => {
+      this.setState({currentBar: null})
+    }, 1500);
   }
 
   //CHANGE TEMPO
@@ -361,6 +415,7 @@ class App extends Component {
                     stopProgression={this.stopProgression}
                     playing={this.state.playing}
                     changeTempo={this.changeTempo}
+                    currentBar={this.state.currentBar}
                   />
                 );
               }}

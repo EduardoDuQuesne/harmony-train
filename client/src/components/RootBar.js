@@ -9,11 +9,12 @@ class RootBar extends Component {
     const numerals = this.props.numerals;
     const stats = this.props.root;
     return (
-    <div className="root-major-chart">
+    <div className="root-chart">
        <VictoryChart>
         <VictoryBar
           domain={{ y: [0, 100]}}
           alignment="start"
+          padding={{ top: 20, bottom: 20 }}
           animate={{
             onEnter: {duration: 1000}
           }}

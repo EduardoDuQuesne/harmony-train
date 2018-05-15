@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RootBar from './RootBar';
+import '../css/rootMajor.css';
 
 class RootMajor extends Component {  
 
@@ -15,6 +16,7 @@ class RootMajor extends Component {
   render() {
     return (
       <div>
+        <h3 className="root-major-subheader">Major Key</h3>
         {this.renderChart()}
       </div>
     );

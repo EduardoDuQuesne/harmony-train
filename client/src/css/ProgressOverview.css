@@ -1,4 +1,8 @@
-.sup-script {
-  font-size: .6em;
-   
+.root-chart-flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.overview-desc {
+  text-align: center;
 }

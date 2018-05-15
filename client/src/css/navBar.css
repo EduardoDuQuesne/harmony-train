@@ -1,13 +1,35 @@
 
 ul {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  width: 60%;
   list-style-type: none;
+  margin-right: 30px; 
+}
+li {
+  text-decoration: none;
+  padding-top: 6px;
+}
+.react-link, li {
+  text-decoration: none;
+  color: white;
+}
+  
+  .hidden {
+    display: none;
 }
 
-.hidden {
-  display: none;
+@media (max-width: 440px) {
+  ul {
+    width: 70%;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 0;
+  }
+  
 }
+
+
 
 
 
