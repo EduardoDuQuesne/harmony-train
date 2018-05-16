@@ -44,7 +44,7 @@ class ResetData extends Component {
     return (
 
       <MuiThemeProvider>
-        <div className="reset-container">
+        <div>
           <RaisedButton className="reset-btn" onClick={this.handleOpen} label="Reset Data"  />
           <Dialog
             actions={actions}

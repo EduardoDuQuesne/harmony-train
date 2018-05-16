@@ -4,6 +4,7 @@ import ProgressOverview from "./ProgressOverview";
 import MajorProgress from "./MajorProgress";
 import MinorProgress from "./MinorProgress";
 import {Tabs, Tab} from 'material-ui/Tabs';
+import '../css/progress.css';
 
 class Progress extends Component {
 
@@ -16,9 +17,8 @@ class Progress extends Component {
     return (
       <MuiThemeProvider>
         <div>
-            <Tabs>
-
-              <Tab label="Overview">
+            <Tabs inkBarStyle={{backgroundColor: '#EFBC9B'}}>            
+              <Tab label="Overview" className="stat-tab">
                 <ProgressOverview 
                   username={this.props.username} 
                   majNumerals={this.props.majNumerals} 
@@ -30,13 +30,13 @@ class Progress extends Component {
                 />
               </Tab>
 
-              <Tab label="Major Keys">
+              <Tab label="Major Keys" className="stat-tab">
                 <MajorProgress 
                   majorProgress={this.props.majorProgress}
                 />
               </Tab>
 
-              <Tab label="Minor Keys">        
+              <Tab label="Minor Keys" className="stat-tab">        
                 <MinorProgress 
                   minorProgress={this.props.minorProgress} 
                 />

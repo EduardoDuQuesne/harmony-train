@@ -6,7 +6,14 @@ class ChordCircles extends Component {
     let isCorrect = this.props.isCorrect;
     let isPlaying = +this.props.bar === +this.props.currentBar && this.props.currentBar !==null;
     return (
-      <div className={`circles ${isPlaying ? "play" : ""}`}>
+      <div className={`circles ${isPlaying ? "play" : ""} 
+      answer-${
+        isCorrect
+          ? 'correct-circle'
+          : !isCorrect && typeof isCorrect === 'boolean'
+            ? 'incorrect-circle'
+            : 'unanswered-circle'
+      }`}>
         <p
           className={`answer-${
             isCorrect

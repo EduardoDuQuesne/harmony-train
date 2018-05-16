@@ -8,7 +8,7 @@ class Chords extends Component {
     let chords = [...this.props.chords];
     return (
       <div>
-        <h2>progression</h2>
+        <h2 className="prog-header">progression</h2>
         <div className="circle-flex">
           {chords.map((chord, i) => {
             return (
@@ -24,7 +24,7 @@ class Chords extends Component {
             );
           })}
         </div>
-        <h3>current key: {this.props.keyName}</h3>
+        <h3 className="prog-key">current key: {this.props.keyName}</h3>
       </div>
     );
   }

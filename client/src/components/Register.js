@@ -7,7 +7,7 @@ class Register extends Component {
 
   render() {
     return (
-        <div>
+        <div className="register-container">
           <h1 className="register-header">register</h1>
           <RegisterForm register={this.props.register} />
           <p>{this.props.message}</p>

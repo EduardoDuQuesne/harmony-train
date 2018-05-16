@@ -14,9 +14,18 @@ li {
   text-decoration: none;
   color: white;
 }
+
+.react-link:hover {
+  color: #D7B377;
+  transition: color .3s;
+}
   
   .hidden {
     display: none;
+}
+
+.logout-btn {
+  cursor: pointer;
 }
 
 @media (max-width: 440px) {

@@ -29,6 +29,9 @@ class LoginForm extends Component {
                 hintText=""
                 floatingLabelText="Username"
                 name="username"
+                underlineFocusStyle={{borderColor: '#EFBC9B'}}
+                floatingLabelStyle={{color: '#EFBC9B'}}
+                inputStyle={{color: '#F5F0F6'}}
               />
             </div>
             <div>
@@ -40,9 +43,12 @@ class LoginForm extends Component {
                 floatingLabelText="Password"
                 name="password"
                 type="password"
+                underlineFocusStyle={{borderColor: '#EFBC9B'}}
+                floatingLabelStyle={{color: '#EFBC9B'}}
+                inputStyle={{color: '#F5F0F6'}}
               />
             </div>
-            <div>    
+            <div className="login-btn-container">    
               <RaisedButton label="Login" onClick={this.handleClick} />
             </div>    
           </form>
