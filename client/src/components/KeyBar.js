@@ -11,6 +11,7 @@ class KeyBar extends Component {
        <VictoryChart>
         <VictoryBar
           domain={{ y: [0, 100]}}
+          style={{ data: { fill: "#2B4162" } }}
           alignment="start"
           data={chords.map(chord => (
             {x: `${chord.chordName}`, y: +`${!isNaN(chord.percentage) ? chord.percentage : 0}`}

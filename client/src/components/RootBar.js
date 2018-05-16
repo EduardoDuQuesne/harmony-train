@@ -4,7 +4,6 @@ import '../css/rootBar.css'
 
 class RootBar extends Component {  
   
-
   render() {
     const numerals = this.props.numerals;
     const stats = this.props.root;
@@ -13,6 +12,7 @@ class RootBar extends Component {
        <VictoryChart>
         <VictoryBar
           domain={{ y: [0, 100]}}
+          style={{ data: { fill: "#2B4162" } }}
           alignment="start"
           padding={{ top: 20, bottom: 20 }}
           animate={{
