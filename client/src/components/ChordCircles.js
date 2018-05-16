@@ -5,6 +5,8 @@ class ChordCircles extends Component {
   render() {
     let isCorrect = this.props.isCorrect;
     let isPlaying = +this.props.bar === +this.props.currentBar && this.props.currentBar !==null;
+    let isSubmitted = this.props.submitted;
+    console.log('IS SUBMITTED CHORD CIRCLES', isSubmitted );
     return (
       <div className={`circles ${isPlaying ? "play" : ""} 
       answer-${
@@ -29,8 +31,7 @@ class ChordCircles extends Component {
             this.props.onDragDrop(e, this.props.index);
           }}
         >
-          {' '}
-          {+this.props.bar + 1}
+          {!isSubmitted ? `${+this.props.bar + 1}` : `${this.props.chord}` }
         </p>
       </div>
     );

@@ -13,6 +13,7 @@ class Training extends Component {
               <div>
                 <Chords
                   isCorrect={this.props.isCorrect}
+                  submitted={this.props.submitted}
                   chords={this.props.chords}
                   keyName={this.props.keyName}
                   onDragDrop={this.props.onDragDrop}

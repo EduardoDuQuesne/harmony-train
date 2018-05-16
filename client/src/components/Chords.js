@@ -15,9 +15,11 @@ class Chords extends Component {
               <ChordCircles
                 isCorrect={this.props.isCorrect[i]}
                 currentBar={this.props.currentBar}
+                submitted={this.props.submitted}
                 key={`${chord} + ${i}`}
                 dragOver={this.props.dragOver}
                 index={i}
+                chord={chord}
                 onDragDrop={this.props.onDragDrop}
                 bar={`${i}`}
               />
