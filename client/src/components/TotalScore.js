@@ -6,7 +6,7 @@ class TotalScore extends Component {
     return (
       <div className="total-container">
         <div className="total-header">
-          <h3 className="score">Total {this.props.totalScore}%</h3>
+          <h3 className="score">Total: {this.props.totalScore}%</h3>
         </div>
         <div className="pie-container">
           <TotalPie className="total-pie" totalScore={this.props.totalScore} />

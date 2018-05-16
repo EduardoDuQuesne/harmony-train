@@ -14,10 +14,10 @@ class TotalPie extends Component {
             { x: "Correct", y: correct },
             { x: "Incorrect", y: incorrect }
           ]}
-          colorScale={["green", "red"]}
+          colorScale={["#D7B377", "#2B4162"]}
           style={{
             labels: {
-              fontSize: 25
+              fontSize: 35
             }
           }}
           labelRadius={170}
