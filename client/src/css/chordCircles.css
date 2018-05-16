@@ -51,17 +51,27 @@ p.text-circles {
    width: 130px;
    height: 130px;
  } 
+ p.text-circles {
+  text-align: center;
+  font-size: 2em;
+}
 }
 @media (min-width: 1490px) {
  .circles {
    width: 150px;
    height: 150px;
  } 
+  p.text-circles {
+    text-align: center;
+    font-size: 2em;
+    padding-top: 8px;
+  }
 }
 
 @media (min-width: 1665px) {
- .circles {
-   width: 190px;
-   height: 190px;
+  .circles {
+    width: 190px;
+    height: 190px;
+    font-size: 1.2em;
  } 
 }
