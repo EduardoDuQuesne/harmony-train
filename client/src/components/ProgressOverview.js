@@ -6,9 +6,10 @@ import ResetData from './ResetData';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import '../css/ProgressOverview.css'
+
 class ProgressOverview extends Component {
-  
-  render() {
+
+  renderPage = () => {
     return (
       <MuiThemeProvider>
         <Tabs inkBarStyle={{backgroundColor: '#EFBC9B'}}>
@@ -39,6 +40,14 @@ class ProgressOverview extends Component {
           </Tab>
         </Tabs>
       </MuiThemeProvider>
+    )
+  }
+  
+  render() {
+    return (
+      <div>
+        {this.props.isLoggedIn ? this.renderPage() : ""}
+      </div>
     );
   }
 }

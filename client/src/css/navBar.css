@@ -15,7 +15,8 @@ li {
   color: white;
 }
 
-.react-link:hover {
+.react-link:hover,
+.logout-btn:hover {
   color: #D7B377;
   transition: color .3s;
 }

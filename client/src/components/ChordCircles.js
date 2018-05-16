@@ -6,7 +6,6 @@ class ChordCircles extends Component {
     let isCorrect = this.props.isCorrect;
     let isPlaying = +this.props.bar === +this.props.currentBar && this.props.currentBar !==null;
     let isSubmitted = this.props.submitted;
-    console.log('IS SUBMITTED CHORD CIRCLES', isSubmitted );
     return (
       <div className={`circles ${isPlaying ? "play" : ""} 
       answer-${

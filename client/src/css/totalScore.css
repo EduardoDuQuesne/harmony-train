@@ -1,16 +1,24 @@
 .total-container {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0 auto 0 auto;
   justify-content: space-around;
   text-align: center;
 }
 
 .total-header {
+  /* margin: -50px; */
   text-align: center;
 }
 
 .pie-container {
-
   margin: 0 auto;
+  padding-top: 50px;
+}
+
+@media (min-width: 1005px) {
+  .total-header {
+    /* padding-top: -50px; */
+    text-align: center;
+  }
 }
