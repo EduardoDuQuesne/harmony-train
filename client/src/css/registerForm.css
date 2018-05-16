@@ -3,3 +3,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+.register-btn-container {
+  margin-bottom: 30px;
+  margin-top: 25px;
+}

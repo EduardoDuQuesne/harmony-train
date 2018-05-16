@@ -32,6 +32,9 @@ class RegisterForm extends Component {
               hintText=""
               floatingLabelText="Username"
               name="username"
+              underlineFocusStyle={{borderColor: '#EFBC9B'}}
+              floatingLabelStyle={{color: '#EFBC9B'}}
+              inputStyle={{color: '#F5F0F6'}}
             />
           </div>
           <div>
@@ -42,6 +45,9 @@ class RegisterForm extends Component {
               hintText=""
               floatingLabelText="Email"
               name="email"
+              underlineFocusStyle={{borderColor: '#EFBC9B'}}
+              floatingLabelStyle={{color: '#EFBC9B'}}
+              inputStyle={{color: '#F5F0F6'}}
             />
           </div>
           <div>
@@ -53,6 +59,9 @@ class RegisterForm extends Component {
               floatingLabelText="Password"
               name="password"
               type="password"
+              underlineFocusStyle={{borderColor: '#EFBC9B'}}
+              floatingLabelStyle={{color: '#EFBC9B'}}
+              inputStyle={{color: '#F5F0F6'}}
             />
           </div>
           <div>
@@ -64,9 +73,12 @@ class RegisterForm extends Component {
               floatingLabelText="Confirm Password"
               name="confirm"
               type="password"
+              underlineFocusStyle={{borderColor: '#EFBC9B'}}
+              floatingLabelStyle={{color: '#EFBC9B'}}
+              inputStyle={{color: '#F5F0F6'}}
             />
           </div>
-          <div>
+          <div className="register-btn-container">
             <RaisedButton label="Register" onClick={this.handleClick} />
           </div>
         </div>

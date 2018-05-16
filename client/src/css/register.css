@@ -1,3 +1,15 @@
 .register-header {
   text-align: center;
+  color: #F5F0F6;
+  text-shadow: 1px 0px #EFBC9B, 
+    -1px 0px #8F754F;
+  margin-top: 30px;
+}
+
+.register-container {
+  width: 40%;
+  margin: 100px auto;
+  border: 2px solid #EFBC9B;
+  border-radius: 10px 0 10px 0;
+  background-color: #2B4162;
 }

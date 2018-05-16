@@ -8,10 +8,10 @@ class MinorProgress extends Component {
     const [...keys] = this.props.minorProgress
     return (
       <MuiThemeProvider>
-        <Tabs>
+        <Tabs inkBarStyle={{backgroundColor: '#EFBC9B'}}>
           {keys.map(key => {
             return (  
-              <Tab label={key.keyName} key={key.keyName}>
+              <Tab label={key.keyName} key={key.keyName} className="stat-tab">
                 <KeyBar keyName={key.keyName}  chords={key.progress} />
               </Tab>
               )

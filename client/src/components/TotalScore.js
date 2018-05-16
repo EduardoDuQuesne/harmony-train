@@ -5,10 +5,10 @@ class TotalScore extends Component {
   render() {
     return (
       <div className="total-container">
-        <div>
-          <h2 className="score">total score: {this.props.totalScore}%</h2>
+        <div className="total-header">
+          <h3 className="score">Total {this.props.totalScore}%</h3>
         </div>
-        <div>
+        <div className="pie-container">
           <TotalPie className="total-pie" totalScore={this.props.totalScore} />
         </div>
       </div>

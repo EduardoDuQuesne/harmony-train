@@ -25,7 +25,7 @@ class SubmitAnswers extends Component {
             playing={this.props.playing}
           />  
           <div>      
-            <SelectTempo
+            <SelectTempo        
               changeTempo={this.props.changeTempo}
               />
           </div>

@@ -11,23 +11,31 @@ class ProgressOverview extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <Tabs>
-          <Tab label="General Performance">
-            <TotalScore 
-            totalScore={this.props.totalScore}
-            />
-            <div className="root-chart-flex">
-              <RootMajor 
-                majNumerals={this.props.majNumerals}
-                majorRoot={this.props.majorRoot}                  
-              />
-              <RootMinor 
-                minNumerals={this.props.minNumerals}  
-                minorRoot={this.props.minorRoot}  
-              />
+        <Tabs inkBarStyle={{backgroundColor: '#EFBC9B'}}>
+          <Tab label="General Performance" className="stat-tab">
+            <div className="overview-flex">
+              <div className="overview-flex">
+                <TotalScore 
+                totalScore={this.props.totalScore}
+                />
+              </div>
+              <div>
+                <RootMajor 
+                  majNumerals={this.props.majNumerals}
+                  majorRoot={this.props.majorRoot}                  
+                />
+              </div>
+              <div>
+                <RootMinor 
+                  minNumerals={this.props.minNumerals}  
+                  minorRoot={this.props.minorRoot}  
+                />
+              </div>
             </div>
-            <p className="overview-desc">Percentage of questions answered correctly by chord root in all keys</p>
-            <ResetData resetData={this.props.resetData} />  
+            <p className="overview-desc">Percentage of questions answered correctly by chord root</p>
+            <div className="reset-container">
+              <ResetData resetData={this.props.resetData} />  
+            </div>
           </Tab>
         </Tabs>
       </MuiThemeProvider>

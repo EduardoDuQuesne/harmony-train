@@ -1,0 +1,12 @@
+.chord-choice {
+  cursor: pointer;
+}
+
+.chord-choice-span {
+  background-color: none;
+}
+
+.chord-choice-span:hover {
+  color: #D7B377;
+  transition: color .3s;
+}

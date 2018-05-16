@@ -1,15 +1,16 @@
 .total-container {
   display: flex;
   flex-direction: column;
-  margin: 60px auto 0 auto;
-  justify-content: space-around;
-  width: 35%;
-}
-
-.total-pie {
   margin: 0 auto;
+  justify-content: space-around;
+  text-align: center;
 }
 
-.score {
+.total-header {
   text-align: center;
+}
+
+.pie-container {
+
+  margin: 0 auto;
 }

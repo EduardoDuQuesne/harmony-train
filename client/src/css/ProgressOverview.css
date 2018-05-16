@@ -1,8 +1,21 @@
-.root-chart-flex {
+.overview-flex {
+  color: #2B4162;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .overview-desc {
+  position: absolute;
+  text-align: right;
+  color: #2B4162;
+  right: 30%;
+}
+
+.reset-container {
+  margin-top: 170px;
   text-align: center;
+}
+
+.stat-tab {
+  margin-bottom: 70px;
 }

@@ -1,13 +1,17 @@
 .header {
-  color: #FFFFFF;
+  color: #F5F0F6;
   width: 100%;
   padding: 15px 0 15px 30px;
+  text-shadow: 1px 0px #EFBC9B, 
+    -1px 0px #8F754F;
 }
 
 .header-container {
   display: flex;
-  background-color: #252934;
+  background-color: #2B4162;
+  border-bottom: 2px solid #EFBC9B;
 }
+
 
 h1 {
   margin: 0;
