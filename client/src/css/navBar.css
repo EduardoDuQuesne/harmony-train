@@ -1,9 +1,9 @@
 ul {
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 40%;
   list-style-type: none;
-  margin-right: 30px; 
+  margin-right: 90px; 
 }
 
 li {

@@ -1,0 +1,14 @@
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #2B4162;
+}
+
+.copyright {
+  font-size: .9em;
+  margin-left: 5px;
+  color: #2B4162;
+  text-shadow: .4px .4px #EFBC9B;
+  text-align: center;
+}

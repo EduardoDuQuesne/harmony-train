@@ -19,18 +19,18 @@ class SelectTempo extends Component {
       <MuiThemeProvider>
         <SelectField
           className="select-tempo"
-          floatingLabelText="Tempo"
+          floatingLabelText="tempo"
           value={this.state.value}
           onChange={this.handleChange}
           floatingLabelStyle={{color: 'white'}}
           selectedMenuItemStyle={{color: '#8F754F'}}
           labelStyle={{color: 'white'}}
           >
-            <MenuItem value={60} primaryText="Slowest" />
-            <MenuItem value={80} primaryText="Slow" />
-            <MenuItem value={120} primaryText="Medium" />
-            <MenuItem value={160} primaryText="Fast" />
-            <MenuItem value={200} primaryText="Fastest" />
+            <MenuItem value={60} primaryText="slowest" />
+            <MenuItem value={80} primaryText="slow" />
+            <MenuItem value={120} primaryText="medium" />
+            <MenuItem value={160} primaryText="fast" />
+            <MenuItem value={200} primaryText="fastest" />
           </SelectField>
       </MuiThemeProvider>
     );

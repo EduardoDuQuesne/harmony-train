@@ -1,10 +1,10 @@
 .answer-correct { 
   color: white;
-  /* text-shadow: 1px 2px darkgreen; */
 }
 .answer-correct-circle {
   background-color: rgb(20, 79, 20) !important;
-  box-shadow: 3px 3px rgb(20, 79, 20); 
+  box-shadow: 3px 3px rgb(20, 79, 20);
+  transition: background-color .1s; 
 }
 
 .answer-incorrect {
@@ -15,6 +15,7 @@
 .answer-incorrect-circle {
   background-color: rgb(82, 24, 24) !important;
   box-shadow: 3px 3px darkred; 
+  transition: background-color .1s; 
 }
 
 .circles {
@@ -37,7 +38,7 @@ p.text-circles {
   font-size: 1.5em;
 }
 .play {
-  border: 2px solid rgb(150, 30, 30);
+  border: 1px solid rgb(150, 30, 30);
   transition: border 1s;
 }
 

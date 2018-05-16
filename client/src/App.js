@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Progress from './components/Progress';
 import SnackBar from './components/SnackBar';
+import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 //AUDIO 
 import Tone from 'tone'
@@ -213,7 +214,7 @@ class App extends Component {
     this.pianoLoop.stop();
     this.setStateStop();
     this.newProgression();
-    this.setState({ submitted: false, isCorrect: [] });
+    this.setState({ submitted: false, isCorrect: [], answers: []});
   };
 
   //SET PLAY STATE
@@ -245,6 +246,7 @@ class App extends Component {
       });
       axios.get(`${this.url}/server/progress/major`)
       .then(({data}) => {
+        console.log('TOTAL CHECK: ', data );
         this.setState({
           majorProgress: data
         })
@@ -282,42 +284,42 @@ class App extends Component {
     "Abmin": require("./audio/Abmin.mp3"),
     "Amaj": require("./audio/Amaj.mp3"),
     "Amin": require("./audio/Amin.mp3"),
-    "Aminb5": require("./audio/Aminb5.mp3"),
-    "ASminb5": require("./audio/ASminb5.mp3"),
+    "Adim": require("./audio/Adim.mp3"),
+    "ASdim": require("./audio/ASdim.mp3"),
     "Bbmin": require("./audio/Bbmin.mp3"),
     "Bmin": require("./audio/Bmin.mp3"),
     "Bbmaj": require("./audio/Bbmaj.mp3"),
-    "Bminb5": require("./audio/Bminb5.mp3"),
+    "Bdim": require("./audio/Bdim.mp3"),
     "Bmaj": require("./audio/Bmaj.mp3"),
     "Cbmaj": require("./audio/Cbmaj.mp3"),
     "CSmin": require("./audio/CSmin.mp3"),
     "Cmaj": require("./audio/Cmaj.mp3"),
     "Cmin": require("./audio/Cmin.mp3"),
-    "Cminb5": require("./audio/Cminb5.mp3"),
-    "CSminb5": require("./audio/CSminb5.mp3"),
+    "Cdim": require("./audio/Cdim.mp3"),
+    "CSdim": require("./audio/CSdim.mp3"),
     "Dbmaj": require("./audio/Dbmaj.mp3"),
     "Dmin": require("./audio/Dmin.mp3"),
-    "Dminb5": require("./audio/Dminb5.mp3"),
+    "Ddim": require("./audio/Ddim.mp3"),
     "Dmaj": require("./audio/Dmaj.mp3"),
     "DSmin": require("./audio/DSmin.mp3"),
-    "DSminb5": require("./audio/DSminb5.mp3"),
+    "DSdim": require("./audio/DSdim.mp3"),
     "Ebmin": require("./audio/Ebmin.mp3"),
     "Ebmaj": require("./audio/Ebmaj.mp3"),
-    "Eminb5": require("./audio/Eminb5.mp3"),
+    "Edim": require("./audio/Edim.mp3"),
     "Emaj": require("./audio/Emaj.mp3"),
     "Emin": require("./audio/Emin.mp3"),
     "Fmaj": require("./audio/Fmaj.mp3"),
     "Fmin": require("./audio/Fmin.mp3"),
-    "Fminb5": require("./audio/Fminb5.mp3"),
+    "Fdim": require("./audio/Fdim.mp3"),
     "FSmaj": require("./audio/FSmaj.mp3"),
     "FSmin": require("./audio/FSmin.mp3"),
-    "FSminb5": require("./audio/FSminb5.mp3"),
+    "FSdim": require("./audio/FSdim.mp3"),
     "Gbmaj": require("./audio/Gbmaj.mp3"),
     "Gmaj": require("./audio/Gmaj.mp3"),
     "Gmin": require("./audio/Gmin.mp3"),
-    "Gminb5": require("./audio/Gminb5.mp3"),
+    "Gdim": require("./audio/Gdim.mp3"),
     "GSmin": require("./audio/GSmin.mp3"),
-    "GSminb5": require("./audio/GSminb5.mp3")
+    "GSdim": require("./audio/GSdim.mp3")
   }, {
     "volume": 0,
     "fadeOut": "32n",
@@ -356,7 +358,6 @@ class App extends Component {
   changeTempo = (tempo) => {    
     Tone.Transport.bpm.value = tempo
   }
-
 
   // DRAG AND DROP
   dragStart = (e, chord) => {
@@ -462,6 +463,7 @@ class App extends Component {
 
             <Route exact component={NotFound} />
           </Switch>
+          <Footer />
           <SnackBar 
             open={this.state.open}
             username={this.state.currentUsername}

@@ -16,6 +16,39 @@
   padding-top: 50px;
 }
 
+.score-key-correct,
+.score-key-incorrect {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  color: #2B4162;
+  font-size: .5em;
+}
+
+
+
+.score-key-correct {
+  margin-top: 7px; 
+  background-color: #EFBC9B;
+}
+
+.score-key-incorrect {
+  background-color: #2B4162;
+}
+
+.score-key-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.score-key-flex p {
+  margin: 0;
+  align-items: right;
+}
+
 @media (min-width: 1005px) {
   .total-header {
     text-align: center;

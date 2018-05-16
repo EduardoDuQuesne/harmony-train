@@ -44,6 +44,7 @@ module.exports.getProgressByKey = async (req, res, next) => {
               where: {userId, keyId: keys[i].id, chordId: chords[j].chordId, correct: false}
             });
             let total = correct + incorrect;
+            keyTotal += total
             keyTotal = await keyTotal + total;
             let chordStats = {
               chordName: chords[j]['Chord.name'],
@@ -51,9 +52,12 @@ module.exports.getProgressByKey = async (req, res, next) => {
               correct: correct,
               incorrect: incorrect,
               total
+              
             };
+            // chordObj.dataAvailable = total === 0 ? false : true;
             chordObj.progress.push(chordStats)
           }
+          chordObj.dataAvailable = keyTotal === 0 ? false : true
           statsArray.push(chordObj);         
     }
     res.status(200).json(statsArray);
