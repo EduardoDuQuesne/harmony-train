@@ -10,15 +10,20 @@ class MinorProgress extends Component {
       <MuiThemeProvider>
         <Tabs inkBarStyle={{backgroundColor: '#EFBC9B'}}>
           {keys.map(key => {
-            return (  
-              <Tab label={key.keyName} key={key.keyName} className="stat-tab">
-                <KeyBar keyName={key.keyName}  chords={key.progress} />
-              </Tab>
+            {if (key.dataAvailable) {
+              return (
+                <Tab 
+                  label={key.keyName} key={key.keyName} 
+                  className={`stat-tab`}>
+                  <KeyBar keyName={key.keyName}  chords={key.progress} />
+                </Tab>
               )
+            }}     
           })}
         </Tabs>
       </MuiThemeProvider>
     );
   }
 }
+
 export default MinorProgress;

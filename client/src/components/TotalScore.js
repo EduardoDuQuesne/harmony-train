@@ -11,6 +11,12 @@ class TotalScore extends Component {
         <div className="pie-container">
           <TotalPie className="total-pie" totalScore={this.props.totalScore} />
         </div>
+        <div className="score-key-flex">
+          <div className="score-key-correct"></div><p> correct</p>
+        </div>
+        <div className="score-key-flex">
+          <div className="score-key-incorrect"></div><p> incorrect</p>
+        </div>
       </div>
     );
   }

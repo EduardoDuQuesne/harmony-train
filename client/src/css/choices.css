@@ -15,3 +15,12 @@
   text-shadow: 1px 0px #EFBC9B, 
     -1px 0px #8F754F;
 }
+
+@media (min-width: 1665px) {
+  .choice-flex {
+    margin-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  
+}

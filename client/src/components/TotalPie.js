@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { VictoryPie } from "victory";
 import '../css/totalPie.css'
 
-
 class TotalPie extends Component {  
   render() {
-    const correct = this.props.totalScore;
-    const incorrect = 100 - this.props.totalScore;
+    const correct = +this.props.totalScore;
+    const incorrect = 100 - +this.props.totalScore;
     return (
       <div className="total-pie">
         <VictoryPie
           data={[
-            { x: "Correct", y: correct },
-            { x: "Incorrect", y: incorrect }
+            { x: 1, y: correct, label: "" },
+            { x: 2, y: incorrect, label: "" }
           ]}
+          labels={() => null}
           colorScale={["#D7B377", "#2B4162"]}
           style={{
             labels: {
