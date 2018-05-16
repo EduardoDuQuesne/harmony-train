@@ -1,14 +1,15 @@
 .overview-flex {
   color: #2B4162;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .overview-desc {
   position: absolute;
   text-align: right;
   color: #2B4162;
-  right: 30%;
+  margin-top: 30px;
+  right: 26%;
 }
 
 .reset-container {

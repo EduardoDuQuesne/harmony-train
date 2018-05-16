@@ -7,12 +7,12 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import '../css/progress.css';
 
 class Progress extends Component {
-
+  
+  //ON MOUNT, GET USER DATA
   componentDidMount = () => {
     this.props.getProgressData();
-    
   }
-  
+
   render() {
     return (
       <MuiThemeProvider>
@@ -27,6 +27,7 @@ class Progress extends Component {
                   minorRoot={this.props.minorRoot}  
                   totalScore={this.props.totalScore}
                   resetData={this.props.resetData}
+                  isLoggedIn={this.props.isLoggedIn}
                 />
               </Tab>
 

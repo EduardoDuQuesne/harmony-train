@@ -4,7 +4,6 @@ import '../css/keyBar.css'
 
 class KeyBar extends Component {  
   
-
   render() {
     const chords = this.props.chords;
     return (
@@ -14,7 +13,6 @@ class KeyBar extends Component {
           domain={{ y: [0, 100]}}
           alignment="start"
           data={chords.map(chord => (
-
             {x: `${chord.chordName}`, y: +`${!isNaN(chord.percentage) ? chord.percentage : 0}`}
           ))}
         />

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import {grey50, red500} from 'material-ui/styles/colors';
 import '../css/selectTempo.css';
 
 class SelectTempo extends Component {
@@ -23,7 +22,7 @@ class SelectTempo extends Component {
           floatingLabelText="Tempo"
           value={this.state.value}
           onChange={this.handleChange}
-          floatingLabelStyle={{color: grey50}}
+          floatingLabelStyle={{color: 'white'}}
           selectedMenuItemStyle={{color: '#8F754F'}}
           labelStyle={{color: 'white'}}
           >

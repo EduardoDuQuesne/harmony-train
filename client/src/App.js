@@ -50,7 +50,6 @@ class App extends Component {
 
   //ON COMPONENT MOUNT, LOAD CHORD PROGRESSION
   //CHECK IF USER IS LOGGED INTO DATABASE
-  //TODO: ERROR HANDLING, CATCH
   componentDidMount() {
     this.newProgression();
     this.checkStatus()
@@ -60,7 +59,10 @@ class App extends Component {
         currentUsername: username,
         currentUserId: id
         })
-        // this.getProgressData();
+        this.getProgressData();
+    })
+    .catch(err => {
+      console.error(err);
     });
   }
 
@@ -103,9 +105,8 @@ class App extends Component {
     })
     .catch(err => {
       //TODO: Handle Error
-      console.log('Client Logout Error: ', err);
+      console.error('React Logout Error: ', err);
     });
-    this.setState({ isLoggedIn: false });
   };
 
   //REGISTER
@@ -202,10 +203,7 @@ class App extends Component {
     let answerObj = {keyName: this.state.key[0], answers};
     let user = await this.checkStatus();
     if (user) {
-      axios.post(`${this.url}/server/answers`, answerObj)
-      .then(message => {
-        // this.getProgressData();
-      })
+      axios.post(`${this.url}/server/answers`, answerObj);
     } 
   };
 
@@ -338,9 +336,7 @@ class App extends Component {
 
   //PLAY PIANO PROGRESSION
   playProgression = () => {
-    if (Tone.context.state !== 'running') {
-      Tone.context.resume();
-    }
+    Tone.context.resume();
     Tone.Transport.start();
     this.pianoLoop.start();
     this.setStatePlay();
@@ -458,6 +454,7 @@ class App extends Component {
                   totalScore={this.state.totalScore}
                   majNumerals={this.state.majNumerals}
                   minNumerals={this.state.minNumerals}
+                  isLoggedIn={this.state.isLoggedIn}
                 />
               );
             }} 

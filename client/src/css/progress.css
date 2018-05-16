@@ -1,6 +1,11 @@
 .stat-tab {
   background-color: #2B4162 !important;
 }
+
 .stat-tab:hover {
   color: #D7B377 !important;
+}
+
+.hide-overview {
+  display: none;
 }
