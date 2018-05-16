@@ -4,7 +4,6 @@ import '../css/keyBar.css'
 
 class KeyBar extends Component {  
   
-
   render() {
     const chords = this.props.chords;
     return (

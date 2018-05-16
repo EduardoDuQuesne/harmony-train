@@ -51,4 +51,5 @@ class ProgressOverview extends Component {
     );
   }
 }
+
 export default ProgressOverview;

@@ -50,7 +50,6 @@ class App extends Component {
 
   //ON COMPONENT MOUNT, LOAD CHORD PROGRESSION
   //CHECK IF USER IS LOGGED INTO DATABASE
-  //TODO: ERROR HANDLING, CATCH
   componentDidMount() {
     this.newProgression();
     this.checkStatus()
@@ -61,6 +60,9 @@ class App extends Component {
         currentUserId: id
         })
         this.getProgressData();
+    })
+    .catch(err => {
+      console.error(err);
     });
   }
 
