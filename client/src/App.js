@@ -81,9 +81,10 @@ class App extends Component {
       })      
     })
     .catch(err => {
-        this.setState({
-          message: err.response.data.message
-        })
+      console.log('ERROR: ', err );
+        // this.setState({
+        //   message: err.response.data.message
+        // })
     })
   };
 
@@ -121,7 +122,7 @@ class App extends Component {
       axios.post(`${this.url}/server/login`, {username: newUser.username, password: newUser.password});
       this.history.push('/');
       this.setState({
-        message: `Welcome ${this.user.data.username}`,
+        message: `Welcome ${user.data.username}`,
         isLoggedIn: true,
         currentUsername: user.data.username,
         currentUserId: user.data.id,

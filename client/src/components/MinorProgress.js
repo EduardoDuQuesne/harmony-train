@@ -9,8 +9,8 @@ class MinorProgress extends Component {
     return (
       <MuiThemeProvider>
         <Tabs inkBarStyle={{backgroundColor: '#EFBC9B'}}>
-          {keys.map(key => {
-            {if (key.dataAvailable) {
+          {keys.forEach(key => {
+            if (key.dataAvailable) {
               return (
                 <Tab 
                   label={key.keyName} key={key.keyName} 
@@ -18,7 +18,7 @@ class MinorProgress extends Component {
                   <KeyBar keyName={key.keyName}  chords={key.progress} />
                 </Tab>
               )
-            }}     
+            }     
           })}
         </Tabs>
       </MuiThemeProvider>

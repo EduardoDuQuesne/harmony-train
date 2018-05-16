@@ -7,12 +7,11 @@ class MajorProgress extends Component {
   
   render() {
     const [...keys] = this.props.majorProgress
-    console.log("Major Progress", keys);
     return (
       <MuiThemeProvider>
         <Tabs inkBarStyle={{backgroundColor: '#EFBC9B'}}>
-          {keys.map(key => {
-            {if (key.dataAvailable) {
+          {keys.forEach(key => {
+            if (key.dataAvailable) {
               return (
                 <Tab 
                   label={key.keyName} key={key.keyName} 
@@ -20,7 +19,7 @@ class MajorProgress extends Component {
                   <KeyBar keyName={key.keyName}  chords={key.progress} />
                 </Tab>
               )
-            }}     
+            }     
           })}
         </Tabs>
       </MuiThemeProvider>
