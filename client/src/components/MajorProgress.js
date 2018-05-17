@@ -6,11 +6,11 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 class MajorProgress extends Component {
   
   render() {
-    const [...keys] = this.props.majorProgress
+    const [...keys] = this.props.majorProgress;
     return (
       <MuiThemeProvider>
         <Tabs inkBarStyle={{backgroundColor: '#EFBC9B'}}>
-          {keys.forEach(key => {
+          {keys.map(key => {
             if (key.dataAvailable) {
               return (
                 <Tab 

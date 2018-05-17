@@ -82,9 +82,9 @@ class App extends Component {
     })
     .catch(err => {
       console.log('ERROR: ', err );
-        // this.setState({
-        //   message: err.response.data.message
-        // })
+        this.setState({
+          message: err.response.data.message
+        })
     })
   };
 
@@ -247,7 +247,6 @@ class App extends Component {
       });
       axios.get(`${this.url}/server/progress/major`)
       .then(({data}) => {
-        console.log('TOTAL CHECK: ', data );
         this.setState({
           majorProgress: data
         })

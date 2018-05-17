@@ -9,7 +9,7 @@ class MinorProgress extends Component {
     return (
       <MuiThemeProvider>
         <Tabs inkBarStyle={{backgroundColor: '#EFBC9B'}}>
-          {keys.forEach(key => {
+          {keys.map(key => {
             if (key.dataAvailable) {
               return (
                 <Tab 
