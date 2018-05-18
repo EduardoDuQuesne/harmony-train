@@ -2,7 +2,7 @@
 
 ## About
 
-[Harmony Train](https://i.imgur.com/CPbLPvk.png)
+![Harmony Train](https://i.imgur.com/CPbLPvk.png)
 
 Harmony train is a harmonic ear training designed to improve the users ability to recognize chord progressions. User is given a mseries of eight chords and has to guess which chords are being played. All statistics are stored in the database and the user is shown areas that need improvement. 
 
@@ -19,10 +19,10 @@ Harmony train is a harmonic ear training designed to improve the users ability t
 - Once you are logged in, you can click on the progress tab to view statistics
 
 #### View general statistics for each chord by root and view total percentage score
-[Imgur](https://i.imgur.com/6UVpikj.png)
+![Imgur](https://i.imgur.com/6UVpikj.png)
 
 #### View statistics for each key individually
-[Imgur](https://i.imgur.com/IOujB4j.png)
+![Imgur](https://i.imgur.com/IOujB4j.png)
 
 ## Run locally
 - Clone this git repository. 
